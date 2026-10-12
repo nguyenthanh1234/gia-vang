@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giá vàng hôm nay - Học 3 giây</title>
+<meta name="description" content="Giá vàng thế giới quy đổi VNĐ/lượng, giá bạc, tỷ giá ngoại tệ, biểu đồ, máy tính quy đổi và tính lãi lỗ. Cập nhật mỗi phút.">
+<style>
+  :root {
+    --bg: #f6f4ef; --card: #ffffff; --text: #1d1d1f; --muted: #6b6b70; --line: #e4e0d6;
+    --gold: #b8860b; --gold-soft: #f5ecd3; --up: #0f9d58; --down: #d93025; --accent: #8a6d1f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141414; --card: #1e1e1e; --text: #ececec; --muted: #9a9a9a; --line: #2e2e2e;
+      --gold: #e0b44c; --gold-soft: #2e2715; --up: #34c27a; --down: #ff6b5e; --accent: #e0b44c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 16px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin: 8px 0 16px; }
+  h1 { margin: 0; font-size: 26px; }
+  h1 span { color: var(--gold); }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  .status { color: var(--muted); font-size: 13px; }
+  .status b { color: var(--text); font-weight: 600; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .card.hl { background: var(--gold-soft); border-color: var(--gold); }
+  .label { color: var(--muted); font-size: 13px; }
+  .value { font-size: 24px; font-weight: 700; margin: 4px 0 2px; font-variant-numeric: tabular-nums; }
+  .unit { font-size: 13px; color: var(--muted); font-weight: 400; }
+  .chg { font-size: 13px; font-variant-numeric: tabular-nums; }
+  .up { color: var(--up); } .down { color: var(--down); } .flat { color: var(--muted); }
+  section { margin-top: 20px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tabs button { border: 1px solid var(--line); background: var(--card); color: var(--text); padding: 6px 12px;
+    border-radius: 999px; cursor: pointer; font: inherit; font-size: 13px; }
+  .tabs button.on { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .chartbox { position: relative; height: 300px; }
+  .note { color: var(--muted); font-size: 12.5px; margin-top: 8px; }
+  .two { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  label.f { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+  input, select { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--bg); color: var(--text); font: inherit; }
+  .row { display: flex; gap: 8px; } .row > * { flex: 1; }
+  .result { margin-top: 12px; padding: 12px; border-radius: 8px; background: var(--gold-soft); font-variant-numeric: tabular-nums; }
+  .result .big { font-size: 20px; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .disclaimer { margin: 24px 0 8px; padding: 12px 14px; border-left: 3px solid var(--gold); background: var(--card);
+    font-size: 13px; color: var(--muted); border-radius: 0 8px 8px 0; }
+  .disclaimer a { color: var(--accent); }
+  .err { color: var(--down); }
+  @media (max-width: 480px) { h1 { font-size: 22px; } .value { font-size: 21px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Giá vàng <span>hôm nay</span></h1>
+    <div class="status" id="status">Đang tải dữ liệu...</div>
+  </header>
+
+  <div class="grid">
+    <div class="card hl">
+      <div class="label">Vàng thế giới quy đổi</div>
+      <div class="value" id="v-luong">—</div>
+      <div class="unit">VNĐ / lượng (37,5 g)</div>
+      <div class="chg" id="c-luong"></div>
+    </div>
+    <div class="card">
+      <div class="label">Vàng thế giới quy đổi</div>
+      <div class="value" id="v-chi">—</div>
+      <div class="unit">VNĐ / chỉ (3,75 g)</div>
+    </div>
+    <div class="card">
+      <div class="label">Vàng thế giới (XAU)</div>
+      <div class="value" id="v-xau">—</div>
+      <div class="unit">USD / ounce</div>
+      <div class="chg" id="c-xau"></div>
+    </div>
+    <div class="card">
+      <div class="label">Bạc thế giới (XAG)</div>
+      <div class="value" id="v-xag">—</div>
+      <div class="unit">USD / ounce · <span id="v-xag-luong">—</span> VNĐ/lượng</div>
+      <div class="chg" id="c-xag"></div>
+    </div>
+    <div class="card">
+      <div class="label">Tỷ giá USD/VND</div>
+      <div class="value" id="v-usd">—</div>
+      <div class="unit">tỷ giá trung bình thị trường</div>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>Biểu đồ giá vàng (VNĐ/lượng quy đổi)</h2>
+    <div class="tabs" id="ranges">
+      <button data-r="1">24 giờ</button>
+      <button data-r="7" class="on">7 ngày</button>
+      <button data-r="30">1 tháng</button>
+      <button data-r="365">1 năm</button>
+    </div>
+    <div class="chartbox"><canvas id="chart"></canvas></div>
+    <div class="note" id="chartnote"></div>
+  </section>
+
+  <section class="two">
+    <div class="card">
+      <h2>Máy tính quy đổi</h2>
+      <div class="row">
+        <div>
+          <label class="f" for="q-amt">Khối lượng</label>
+          <input id="q-amt" type="number" min="0" step="any" value="1" inputmode="decimal">
+        </div>
+        <div>
+          <label class="f" for="q-unit">Đơn vị</label>
+          <select id="q-unit">
+            <option value="luong">Lượng (cây)</option>
+            <option value="chi">Chỉ</option>
+            <option value="gram">Gram</option>
+            <option value="oz">Ounce</option>
+          </select>
+        </div>
+      </div>
+      <label class="f" for="q-metal">Kim loại</label>
+      <select id="q-metal"><option value="xau">Vàng</option><option value="xag">Bạc</option></select>
+      <div class="result" id="q-out">—</div>
+    </div>
+
+    <div class="card">
+      <h2>Tính lãi / lỗ</h2>
+      <div class="row">
+        <div>
+          <label class="f" for="p-amt">Số lượng</label>
+          <input id="p-amt" type="number" min="0" step="any" value="1" inputmode="decimal">
+        </div>
+        <div>
+          <label class="f" for="p-unit">Đơn vị</label>
+          <select id="p-unit"><option value="chi">Chỉ</option><option value="luong">Lượng</option><option value="gram">Gram</option></select>
+        </div>
+      </div>
+      <label class="f" for="p-buy">Giá lúc mua (VNĐ / đơn vị trên)</label>
+      <input id="p-buy" type="number" min="0" step="any" placeholder="vd: 8500000" inputmode="numeric">
+      <label class="f" for="p-now">Giá bán hiện tại (VNĐ / đơn vị trên)</label>
+      <input id="p-now" type="number" min="0" step="any" placeholder="để trống = dùng giá thế giới quy đổi" inputmode="numeric">
+      <div class="result" id="p-out">Nhập giá lúc mua để tính.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Tỷ giá ngoại tệ</h2>
+    <table>
+      <thead><tr><th>Ngoại tệ</th><th>1 đơn vị = VNĐ</th></tr></thead>
+      <tbody id="fx"></tbody>
+    </table>
+    <div class="note">Tỷ giá trung bình thị trường, cập nhật mỗi ngày. Tỷ giá mua/bán thực tế tại ngân hàng sẽ chênh lệch.</div>
+  </section>
+
+  <div class="disclaimer">
+    <b>Lưu ý:</b> Giá trên trang là <b>giá vàng thế giới quy đổi</b> theo tỷ giá, chưa gồm thuế, phí và chênh lệch của thị trường trong nước.
+    Giá vàng miếng/nhẫn tại các cửa hàng thường cao hơn. Thông tin chỉ mang tính tham khảo, không phải lời khuyên mua bán hay đầu tư.<br>
+    Nguồn dữ liệu: giá kim loại từ <a href="https://gold-api.com" target="_blank" rel="noopener">gold-api.com</a>;
+    tỷ giá từ <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a>.
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(() => {
+  const OZ_G = 31.1034768, LUONG_G = 37.5, CHI_G = 3.75;
+  const GRAMS = { luong: LUONG_G, chi: CHI_G, gram: 1, oz: OZ_G };
+  const HISTORY_URL = "data/history.json"; // do GitHub Actions cập nhật định kỳ
+  const LS_KEY = "giavang_hist_v1";
+  const FX_SHOW = [["USD","Đô la Mỹ"],["EUR","Euro"],["JPY","Yên Nhật"],["CNY","Nhân dân tệ"],["KRW","Won Hàn Quốc"],
+                   ["GBP","Bảng Anh"],["AUD","Đô la Úc"],["SGD","Đô la Singapore"],["THB","Baht Thái"]];
+
+  const $ = id => document.getElementById(id);
+  const fmt = (n, d = 0) => n == null || isNaN(n) ? "—" : n.toLocaleString("vi-VN", { maximumFractionDigits: d, minimumFractionDigits: d });
+  const st = { xau: null, xag: null, vnd: null, rates: null, hist: [], shared: false, range: 7 };
+
+  const luongOf = (usdOz, vnd) => usdOz * vnd * LUONG_G / OZ_G;
+
+  // ---------- lịch sử ----------
+  function lsLoad() { try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; } catch (e) { return []; } }
+  function lsSave(h) { try { localStorage.setItem(LS_KEY, JSON.stringify(h.slice(-5000))); } catch (e) {} }
+  function addLocalPoint() {
+    if (st.shared || st.xau == null || st.vnd == null) return;
+    const h = st.hist, now = Date.now(), last = h[h.length - 1];
+    if (last && now - last.t < 5 * 60 * 1000) return;          // tối đa 1 điểm / 5 phút
+    h.push({ t: now, xau: st.xau, xag: st.xag, vnd: st.vnd });
+    lsSave(h);
+  }
+  function pointAgo(ms) {                                        // điểm gần nhất cách đây >= ms
+    const target = Date.now() - ms;
+    let best = null;
+    for (const p of st.hist) if (p.t <= target) best = p;
+    return best;
+  }
+
+  // ---------- tải dữ liệu ----------
+  async function getJSON(url) {
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error(url + " " + r.status);
+    return r.json();
+  }
+  async function loadShared() {
+    try {
+      const d = await getJSON(HISTORY_URL);
+      if (!Array.isArray(d.points) || !d.points.length) return false;
+      st.hist = d.points; st.shared = true;
+      const last = d.points[d.points.length - 1];
+      st.xau = last.xau; st.xag = last.xag; st.vnd = last.vnd;
+      if (d.rates) st.rates = d.rates;
+      return true;
+    } catch (e) { return false; }
+  }
+  async function loadDirect() {
+    const [g, s] = await Promise.all([
+      getJSON("https://api.gold-api.com/price/XAU"),
+      getJSON("https://api.gold-api.com/price/XAG").catch(() => null),
+    ]);
+    st.xau = g.price; if (s) st.xag = s.price;
+    if (!st.rates) {
+      const fx = await getJSON("https://open.er-api.com/v6/latest/USD");
+      st.rates = fx.rates;
+    }
+    st.vnd = st.rates.VND;
+  }
+  async function refresh() {
+    try {
+      const ok = await loadShared();
+      if (!ok) { await loadDirect(); if (!st.hist.length) st.hist = lsLoad(); addLocalPoint(); }
+      else {
+        // Lịch sử chỉ cập nhật 30 phút/lần, nên giá hiện tại vẫn lấy trực tiếp; lỗi thì dùng điểm cuối.
+        try { await loadDirect(); } catch (e) {}
+        const last = st.hist[st.hist.length - 1];
+        if (last && Date.now() - last.t > 60 * 1000) st.hist.push({ t: Date.now(), xau: st.xau, xag: st.xag, vnd: st.vnd });
+      }
+      render();
+      $("status").innerHTML = "Cập nhật lúc <b>" + new Date().toLocaleTimeString("vi-VN") + "</b> · tự làm mới mỗi phút";
+    } catch (e) {
+      $("status").innerHTML = '<span class="err">Không tải được dữ liệu. Sẽ thử lại sau 1 phút.</span>';
+    }
+  }
+
+  // ---------- hiển thị ----------
+  function change(el, now, prev, digits, suffix) {
+    if (prev == null) { el.textContent = ""; return; }
+    const d = now - prev, pct = prev ? d / prev * 100 : 0;
+    const cls = Math.abs(pct) < 0.005 ? "flat" : d > 0 ? "up" : "down";
+    const sign = d > 0 ? "▲ +" : d < 0 ? "▼ " : "";
+    el.className = "chg " + cls;
+    el.textContent = sign + fmt(d, digits) + suffix + " (" + (pct > 0 ? "+" : "") + fmt(pct, 2) + "%) so với 24 giờ trước";
+  }
+  function render() {
+    const L = luongOf(st.xau, st.vnd);
+    $("v-luong").textContent = fmt(L);
+    $("v-chi").textContent = fmt(L / 10);
+    $("v-xau").textContent = fmt(st.xau, 2);
+    $("v-xag").textContent = st.xag ? fmt(st.xag, 2) : "—";
+    $("v-xag-luong").textContent = st.xag ? fmt(luongOf(st.xag, st.vnd)) : "—";
+    $("v-usd").textContent = fmt(st.vnd);
+    const p = pointAgo(24 * 3600 * 1000);
+    change($("c-luong"), L, p && luongOf(p.xau, p.vnd), 0, "đ");
+    change($("c-xau"), st.xau, p && p.xau, 2, "$");
+    change($("c-xag"), st.xag, p && p.xag, 2, "$");
+    renderFx(); calcQ(); calcP(); drawChart();
+    if (window.postHeight) window.postHeight();
+  }
+  function renderFx() {
+    if (!st.rates) return;
+    const v = st.rates.VND;
+    $("fx").innerHTML = FX_SHOW.filter(([c]) => st.rates[c]).map(([c, n]) => {
+      const per = v / st.rates[c];
+      return "<tr><td><b>" + c + "</b> · " + n + "</td><td>" + fmt(per, per < 100 ? 2 : 0) + "</td></tr>";
+    }).join("");
+  }
+
+  // ---------- máy tính ----------
+  function calcQ() {
+    if (st.xau == null) return;
+    const amt = parseFloat($("q-amt").value) || 0, unit = $("q-unit").value, metal = $("q-metal").value;
+    const g = amt * GRAMS[unit], px = metal === "xau" ? st.xau : st.xag;
+    if (!px) { $("q-out").textContent = "Chưa có giá bạc."; return; }
+    const vnd = g / OZ_G * px * st.vnd;
+    $("q-out").innerHTML =
+      '<div class="big">' + fmt(vnd) + " VNĐ</div>" +
+      fmt(g / LUONG_G, 4) + " lượng = " + fmt(g / CHI_G, 3) + " chỉ = " + fmt(g, 2) + " g = " + fmt(g / OZ_G, 4) + " oz" +
+      "<br>≈ " + fmt(g / OZ_G * px, 2) + " USD (giá thế giới)";
+  }
+  function calcP() {
+    const amt = parseFloat($("p-amt").value) || 0, unit = $("p-unit").value;
+    const buy = parseFloat($("p-buy").value);
+    let now = parseFloat($("p-now").value);
+    if (isNaN(now) && st.xau != null) now = st.xau * st.vnd * GRAMS[unit] / OZ_G;
+    if (isNaN(buy) || !amt || isNaN(now)) { $("p-out").textContent = "Nhập giá lúc mua để tính."; return; }
+    const cost = buy * amt, val = now * amt, d = val - cost, pct = cost ? d / cost * 100 : 0;
+    const cls = d > 0 ? "up" : d < 0 ? "down" : "flat";
+    $("p-out").innerHTML =
+      '<div class="big ' + cls + '">' + (d >= 0 ? "Lãi " : "Lỗ ") + fmt(Math.abs(d)) + " VNĐ (" + (pct > 0 ? "+" : "") + fmt(pct, 2) + "%)</div>" +
+      "Vốn: " + fmt(cost) + " VNĐ · Giá trị hiện tại: " + fmt(val) + " VNĐ" +
+      ($("p-now").value ? "" : "<br><small>Đang dùng giá thế giới quy đổi; giá bán thực tế tại cửa hàng thường khác.</small>");
+  }
+  ["q-amt","q-unit","q-metal"].forEach(id => $(id).addEventListener("input", calcQ));
+  ["p-amt","p-unit","p-buy","p-now"].forEach(id => $(id).addEventListener("input", calcP));
+
+  // ---------- biểu đồ ----------
+  let chart = null;
+  function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function drawChart() {
+    if (!window.Chart) return;
+    const from = Date.now() - st.range * 86400000;
+    let pts = st.hist.filter(p => p.t >= from && p.xau && p.vnd);
+    const step = Math.ceil(pts.length / 400);                         // giảm điểm cho nhẹ
+    if (step > 1) pts = pts.filter((_, i) => i % step === 0 || i === pts.length - 1);
+    const labels = pts.map(p => {
+      const d = new Date(p.t);
+      return st.range <= 1 ? d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })
+                           : d.toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit" }) +
+                             (st.range <= 7 ? " " + d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }) : "");
+    });
+    const data = pts.map(p => Math.round(luongOf(p.xau, p.vnd)));
+    const gold = css("--gold"), muted = css("--muted"), line = css("--line");
+    if (!chart) {
+      chart = new Chart($("chart"), {
+        type: "line",
+        data: { labels, datasets: [{ data, borderColor: gold, backgroundColor: gold + "22", fill: true,
+                pointRadius: 0, borderWidth: 2, tension: 0.25 }] },
+        options: { responsive: true, maintainAspectRatio: false, animation: false,
+          interaction: { mode: "index", intersect: false },
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { label: c => fmt(c.parsed.y) + " VNĐ/lượng" } } },
+          scales: { x: { ticks: { color: muted, maxTicksLimit: 7 }, grid: { display: false } },
+                    y: { ticks: { color: muted, callback: v => fmt(v / 1e6, 1) + " tr" }, grid: { color: line } } } }
+      });
+    } else {
+      chart.data.labels = labels; chart.data.datasets[0].data = data; chart.update();
+    }
+    $("chartnote").textContent = pts.length < 2
+      ? (st.shared ? "Chưa đủ dữ liệu cho khoảng thời gian này." :
+         "Biểu đồ đang ghi lại giá từ lần đầu bạn mở trang (lưu trên trình duyệt này). Quay lại sau để xem đường giá.")
+      : (st.shared ? "Dữ liệu lịch sử do máy chủ ghi lại." : "Dữ liệu ghi lại trên trình duyệt này từ lần đầu bạn mở trang.");
+  }
+  document.getElementById("ranges").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    document.querySelectorAll("#ranges button").forEach(x => x.classList.toggle("on", x === b));
+    st.range = +b.dataset.r; drawChart();
+  });
+
+  // Khi được nhúng bằng iframe: báo chiều cao cho trang cha để khung tự co giãn.
+  function postHeight() {
+    if (window.parent !== window) window.parent.postMessage({ gvHeight: document.documentElement.scrollHeight }, "*");
+  }
+  window.postHeight = postHeight;
+  new ResizeObserver(postHeight).observe(document.body);
+  window.addEventListener("load", postHeight);
+
+  refresh();
+  setInterval(refresh, 60 * 1000);
+})();
+</script>
+</body>
+</html>

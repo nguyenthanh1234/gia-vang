@@ -1,0 +1,11 @@
+<!-- Dán toàn bộ đoạn này vào khối "HTML tùy chỉnh" của một Trang WordPress.
+     Thay TEN-TAI-KHOAN bằng tên tài khoản GitHub của bạn. -->
+<iframe id="gia-vang-frame" src="https://TEN-TAI-KHOAN.github.io/gia-vang/"
+        title="Giá vàng hôm nay" loading="lazy"
+        style="width:100%;height:1800px;border:0;display:block"></iframe>
+<script>
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://TEN-TAI-KHOAN.github.io" || !e.data || !e.data.gvHeight) return;
+    document.getElementById("gia-vang-frame").style.height = (e.data.gvHeight + 20) + "px";
+  });
+</script>
