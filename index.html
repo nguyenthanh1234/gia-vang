@@ -177,16 +177,6 @@
     </div>
   </div>
 
-  <section class="card" id="sjc">
-    <h2>Giá vàng SJC (VNĐ/lượng)</h2>
-    <table>
-      <thead><tr><th>Loại vàng</th><th>Mua vào</th><th>Bán ra</th></tr></thead>
-      <tbody id="sjc-rows"><tr><td colspan="3" style="text-align:center">Đang tải...</td></tr></tbody>
-    </table>
-    <div class="result" id="sjc-gap" hidden></div>
-    <div class="note" id="sjc-note"></div>
-  </section>
-
   <section class="card">
     <h2>Biểu đồ giá vàng (VNĐ/lượng quy đổi)</h2>
     <div class="tabs" id="ranges">
@@ -338,7 +328,6 @@
         const last = st.hist[st.hist.length - 1];
         if (last && Date.now() - last.t > 60 * 1000) st.hist.push({ t: Date.now(), xau: st.xau, xag: st.xag, vnd: st.vnd });
       }
-      try { st.sjc = await getJSON("data/sjc.json?t=" + Date.now()); } catch (e) { st.sjc = st.sjc || null; }
       render();
       $("status").innerHTML = "Cập nhật lúc <b>" + new Date().toLocaleTimeString("vi-VN") + "</b> · tự làm mới mỗi phút";
     } catch (e) {
@@ -367,27 +356,8 @@
     change($("c-luong"), L, p && luongOf(p.xau, p.vnd), 0, "đ");
     change($("c-xau"), st.xau, p && p.xau, 2, "$");
     change($("c-xag"), st.xag, p && p.xag, 2, "$");
-    renderFx(); renderSjc(L); calcQ(); calcP(); drawChart();
+    renderFx(); calcQ(); calcP(); drawChart();
     if (window.postHeight) window.postHeight();
-  }
-  // Giá SJC nhập tay trong data/sjc.json; không tự lấy từ web SJC.
-  function renderSjc(worldLuong) {
-    const d = st.sjc, items = d && Array.isArray(d.items) ? d.items : [];
-    const has = items.some(i => i.buy || i.sell);
-    $("sjc-rows").innerHTML = items.length
-      ? items.map(i => "<tr><td>" + i.name + "</td><td>" + (i.buy ? fmt(i.buy) : "—") + "</td><td>" + (i.sell ? fmt(i.sell) : "—") + "</td></tr>").join("")
-      : '<tr><td colspan="3" style="text-align:center">Chưa có dữ liệu.</td></tr>';
-    const bar = items.find(i => i.main && i.sell) || items.find(i => i.sell);
-    if (bar && worldLuong) {
-      const gap = bar.sell - worldLuong, pct = gap / worldLuong * 100;
-      $("sjc-gap").hidden = false;
-      $("sjc-gap").innerHTML = "Chênh lệch giá bán <b>" + bar.name + "</b> so với vàng thế giới quy đổi: " +
-        '<div class="big ' + (gap > 0 ? "up" : "down") + '">' + (gap > 0 ? "+" : "") + fmt(gap) + " VNĐ/lượng (" + (pct > 0 ? "+" : "") + fmt(pct, 1) + "%)</div>";
-    } else { $("sjc-gap").hidden = true; }
-    const when = d && d.updated ? new Date(d.updated).toLocaleString("vi-VN", { hour: "2-digit", minute: "2-digit", day: "2-digit", month: "2-digit", year: "numeric" }) : null;
-    $("sjc-note").textContent = has
-      ? "Cập nhật lúc " + when + ". Nguồn: " + (d.source || "bảng giá niêm yết của SJC") + ". Giá có thể thay đổi trong ngày, vui lòng đối chiếu tại cửa hàng."
-      : "Chưa cập nhật giá SJC hôm nay.";
   }
   function renderFx() {
     if (!st.rates) return;
