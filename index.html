@@ -57,14 +57,94 @@
   .disclaimer a { color: var(--accent); }
   .err { color: var(--down); }
   @media (max-width: 480px) { h1 { font-size: 22px; } .value { font-size: 21px; } }
+
+  /* ---------- Trang trí hoa lá ---------- */
+  :root {
+    --leaf: #4f8a3a; --leaf-soft: #e6f1dc; --petal: #e27b9b; --petal-soft: #fbe6ec; --sun: #f2c14e;
+    --pattern-op: .55;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --leaf: #7fbf68; --leaf-soft: #1c2a18; --petal: #f29ab4; --petal-soft: #33202a; --sun: #e0b44c;
+      --pattern-op: .18;
+    }
+  }
+  body { position: relative; background:
+      radial-gradient(1200px 500px at -10% -10%, var(--leaf-soft), transparent 60%),
+      radial-gradient(900px 500px at 110% 0%, var(--petal-soft), transparent 55%),
+      var(--bg); }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: var(--pattern-op);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M20 40c10-14 26-14 34-2' stroke='%2393bf7c' stroke-width='1.5'/%3E%3Cpath d='M30 34c4-6 10-7 14-4-3 6-9 8-14 4z' fill='%23b9d9a6'/%3E%3Cpath d='M44 38c6-3 11-1 12 4-6 2-11 1-12-4z' fill='%23b9d9a6'/%3E%3Ccircle cx='118' cy='46' r='3' fill='%23f2c14e'/%3E%3Cg fill='%23f4b6c6'%3E%3Ccircle cx='118' cy='38' r='5'/%3E%3Ccircle cx='126' cy='46' r='5'/%3E%3Ccircle cx='118' cy='54' r='5'/%3E%3Ccircle cx='110' cy='46' r='5'/%3E%3C/g%3E%3Ccircle cx='118' cy='46' r='3' fill='%23f2c14e'/%3E%3Cpath d='M70 130c8-10 20-12 28-4' stroke='%2393bf7c' stroke-width='1.5'/%3E%3Cpath d='M80 124c3-6 9-8 13-5-3 6-8 8-13 5z' fill='%23b9d9a6'/%3E%3Ccircle cx='30' cy='120' r='2.5' fill='%23f4b6c6'/%3E%3Ccircle cx='140' cy='120' r='2' fill='%23b9d9a6'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .wrap { position: relative; z-index: 1; }
+
+  .hero { position: relative; overflow: hidden; border-radius: 18px; padding: 20px 22px; margin: 4px 0 18px;
+    background: linear-gradient(120deg, var(--leaf-soft), var(--gold-soft) 55%, var(--petal-soft));
+    border: 1px solid var(--line); }
+  .hero header { margin: 0; position: relative; z-index: 1; }
+  .hero h1 { font-size: 30px; display: flex; align-items: center; gap: 10px; }
+  .hero .sub { position: relative; z-index: 1; margin-top: 4px; color: var(--muted); font-size: 13.5px; }
+  .hero .garland { position: absolute; right: -10px; top: -6px; width: 260px; height: auto; opacity: .95; pointer-events: none; }
+  @media (max-width: 600px) { .hero .garland { width: 170px; right: -30px; opacity: .55; } .hero h1 { font-size: 24px; } }
+
+  .card { position: relative; overflow: hidden; }
+  .card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+    background: linear-gradient(90deg, var(--leaf), var(--sun), var(--petal)); opacity: .85; }
+  .card::after { content: ""; position: absolute; right: 6px; bottom: 4px; width: 46px; height: 46px; pointer-events: none; opacity: .35;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M8 44C14 30 24 20 40 12' stroke='%234f8a3a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M20 30c-8-2-11-8-9-13 7 1 11 7 9 13z' fill='%2393bf7c'/%3E%3Cpath d='M28 22c-2-8 2-13 8-14 1 7-3 12-8 14z' fill='%2393bf7c'/%3E%3Cpath d='M32 26c7-3 12 0 13 5-7 2-11-1-13-5z' fill='%23b9d9a6'/%3E%3C/svg%3E") no-repeat center / contain; }
+  .card.hl { background: linear-gradient(160deg, var(--gold-soft), var(--petal-soft)); }
+  .tabs button.on { background: linear-gradient(90deg, var(--leaf), var(--gold)); border-color: transparent; }
+  .result { background: linear-gradient(135deg, var(--leaf-soft), var(--gold-soft)); }
+  h2::before { content: "❀ "; color: var(--petal); }
+  .divider { display: block; width: 100%; max-width: 420px; height: 28px; margin: 26px auto 0; }
+  .disclaimer { border-left-color: var(--leaf); }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>Giá vàng <span>hôm nay</span></h1>
-    <div class="status" id="status">Đang tải dữ liệu...</div>
-  </header>
+  <div class="hero">
+    <svg class="garland" viewBox="0 0 260 130" aria-hidden="true">
+      <path d="M10 18 C70 70 150 40 250 100" fill="none" stroke="#4f8a3a" stroke-width="2.5" stroke-linecap="round"/>
+      <g fill="#7fb36a">
+        <path d="M48 42c-10-2-14-10-11-16 9 1 14 9 11 16z"/>
+        <path d="M60 50c2-10 10-14 16-11-1 9-9 14-16 11z"/>
+        <path d="M120 54c-9-4-11-12-7-17 8 3 11 11 7 17z"/>
+        <path d="M134 58c4-9 13-11 18-7-3 8-11 11-18 7z"/>
+        <path d="M196 76c-9-3-12-11-8-17 8 2 12 10 8 17z"/>
+        <path d="M212 84c3-9 12-12 17-8-2 8-10 12-17 8z"/>
+      </g>
+      <g transform="translate(92 46)">
+        <g fill="#f4a3b8"><circle cx="0" cy="-9" r="7"/><circle cx="8.6" cy="-2.8" r="7"/><circle cx="5.3" cy="7.3" r="7"/><circle cx="-5.3" cy="7.3" r="7"/><circle cx="-8.6" cy="-2.8" r="7"/></g>
+        <circle r="5" fill="#f2c14e"/>
+      </g>
+      <g transform="translate(168 70) scale(.8)">
+        <g fill="#fff3c4" stroke="#f2c14e" stroke-width="1"><ellipse cx="0" cy="-10" rx="5" ry="9"/><ellipse cx="0" cy="10" rx="5" ry="9"/><ellipse cx="-10" cy="0" rx="9" ry="5"/><ellipse cx="10" cy="0" rx="9" ry="5"/></g>
+        <circle r="5" fill="#e0a31a"/>
+      </g>
+      <g transform="translate(236 96) scale(.7)">
+        <g fill="#e27b9b"><circle cx="0" cy="-9" r="7"/><circle cx="8.6" cy="-2.8" r="7"/><circle cx="5.3" cy="7.3" r="7"/><circle cx="-5.3" cy="7.3" r="7"/><circle cx="-8.6" cy="-2.8" r="7"/></g>
+        <circle r="5" fill="#f2c14e"/>
+      </g>
+      <g transform="translate(28 26) scale(.55)">
+        <g fill="#f4a3b8"><circle cx="0" cy="-9" r="7"/><circle cx="8.6" cy="-2.8" r="7"/><circle cx="5.3" cy="7.3" r="7"/><circle cx="-5.3" cy="7.3" r="7"/><circle cx="-8.6" cy="-2.8" r="7"/></g>
+        <circle r="5" fill="#f2c14e"/>
+      </g>
+    </svg>
+    <header>
+      <h1>
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 30V14" stroke="#4f8a3a" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M16 22c-7 0-10-5-9-9 6 0 9 4 9 9z" fill="#7fb36a"/>
+          <path d="M16 19c6-1 9-5 8-9-6 0-8 4-8 9z" fill="#93bf7c"/>
+          <g fill="#f2c14e"><circle cx="16" cy="6" r="4"/><circle cx="21" cy="9" r="4"/><circle cx="11" cy="9" r="4"/><circle cx="16" cy="12" r="4"/></g>
+          <circle cx="16" cy="9" r="3" fill="#b8860b"/>
+        </svg>
+        Giá vàng <span>hôm nay</span>
+      </h1>
+    </header>
+    <div class="sub">Vàng · Bạc · Tỷ giá — cập nhật tự động mỗi phút</div>
+    <div class="status sub" id="status">Đang tải dữ liệu...</div>
+  </div>
 
   <div class="grid">
     <div class="card hl">
@@ -160,6 +240,13 @@
     </table>
     <div class="note">Tỷ giá trung bình thị trường, cập nhật mỗi ngày. Tỷ giá mua/bán thực tế tại ngân hàng sẽ chênh lệch.</div>
   </section>
+
+  <svg class="divider" viewBox="0 0 420 28" aria-hidden="true">
+    <path d="M10 14 H180 M240 14 H410" stroke="#93bf7c" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M182 14c8-8 18-8 22 0-8 6-16 6-22 0z" fill="#7fb36a"/>
+    <path d="M238 14c-8-8-18-8-22 0 8 6 16 6 22 0z" fill="#7fb36a"/>
+    <g transform="translate(210 14)"><g fill="#f4a3b8"><circle cx="0" cy="-6" r="5"/><circle cx="5.7" cy="-1.9" r="5"/><circle cx="3.5" cy="4.9" r="5"/><circle cx="-3.5" cy="4.9" r="5"/><circle cx="-5.7" cy="-1.9" r="5"/></g><circle r="3.5" fill="#f2c14e"/></g>
+  </svg>
 
   <div class="disclaimer">
     <b>Lưu ý:</b> Giá trên trang là <b>giá vàng thế giới quy đổi</b> theo tỷ giá, chưa gồm thuế, phí và chênh lệch của thị trường trong nước.
