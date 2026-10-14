@@ -11,6 +11,16 @@
       "promo": "Xem tin giá vàng trên YouTube mà phụ đề không hiện?"
     },
     {
+      "id": "tai-anh-hang-loat",
+      "type": "chrome",
+      "name": "Tải Ảnh Hàng Loạt",
+      "icon": "assets/tai-anh-hang-loat.png",
+      "desc": "Phát hiện ảnh và sản phẩm trên trang web, tải hàng loạt theo thứ tự, đặt tên theo mẫu, đổi sang JPG/PNG/WEBP.",
+      "url": "https://chromewebstore.google.com/detail/cgpfnjdamchgbnolahmfgdijdfiecnkh?hl=vi",
+      "button": "Thêm vào Chrome",
+      "promo": "Cần lưu nhiều ảnh từ một trang web cùng lúc?"
+    },
+    {
       "id": "vit-nhay",
       "type": "android",
       "name": "Vịt Nhảy",
