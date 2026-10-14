@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "sua-phu-de",
+      "type": "chrome",
+      "name": "Sửa Phụ Đề cho YouTube",
+      "icon": "assets/sua-phu-de.png",
+      "desc": "Khắc phục lỗi không hiện phụ đề (CC) trên YouTube: tự bật phụ đề, ép hiển thị và tự vẽ phụ đề dự phòng.",
+      "url": "https://chromewebstore.google.com/detail/fkbjjgiojancmfefkkhgbmjciikbfkdd?hl=vi",
+      "button": "Thêm vào Chrome",
+      "promo": "Xem tin giá vàng trên YouTube mà phụ đề không hiện?"
+    },
+    {
+      "id": "vit-nhay",
+      "type": "android",
+      "name": "Vịt Nhảy",
+      "icon": "assets/vit-nhay.png",
+      "desc": "Giúp chú vịt vàng nhảy qua xương rồng! Game pixel vui nhộn, chơi bằng 1 chạm.",
+      "url": "https://play.google.com/store/apps/details?id=com.vitnhay.game",
+      "button": "Tải trên Google Play",
+      "promo": "Tính xong giá vàng rồi, nghỉ tay chơi một ván nhé?"
+    }
+  ]
+}

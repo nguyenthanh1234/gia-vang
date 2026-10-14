@@ -98,6 +98,36 @@
   h2::before { content: "❀ "; color: var(--petal); }
   .divider { display: block; width: 100%; max-width: 420px; height: 28px; margin: 26px auto 0; }
   .disclaimer { border-left-color: var(--leaf); }
+
+  /* ---------- Tab chính & sản phẩm ---------- */
+  .maintabs { display: flex; gap: 8px; margin: 0 0 16px; overflow-x: auto; scrollbar-width: none; }
+  .maintabs::-webkit-scrollbar { display: none; }
+  .maintabs a { flex: 0 0 auto; padding: 9px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;
+    color: var(--text); background: var(--card); border: 1px solid var(--line); white-space: nowrap; }
+  .maintabs a.on { color: #fff; border-color: transparent; background: linear-gradient(90deg, var(--leaf), var(--gold)); }
+  @media (max-width: 480px) {
+    .maintabs { flex-wrap: wrap; gap: 6px; }
+    .maintabs a { flex: 1 1 auto; text-align: center; padding: 8px 10px; font-size: 13px; }
+  }
+  .pane[hidden] { display: none; }
+  .promo:empty { display: none; }
+  .promo { margin-top: 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 14px 16px; border-radius: 14px;
+    background: linear-gradient(120deg, var(--petal-soft), var(--leaf-soft)); border: 1px dashed var(--leaf); }
+  .promo img { width: 52px; height: 52px; border-radius: 12px; flex: 0 0 auto; }
+  .promo .txt { flex: 1 1 200px; min-width: 0; }
+  .promo .q { font-weight: 700; }
+  .promo .n { color: var(--muted); font-size: 13px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px; text-decoration: none;
+    font-weight: 700; font-size: 14px; color: #fff; background: linear-gradient(90deg, var(--leaf), var(--gold)); white-space: nowrap; }
+  .btn:hover { filter: brightness(1.08); }
+  .products { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .product { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
+  .product .top { display: flex; gap: 12px; align-items: center; }
+  .product img { width: 64px; height: 64px; border-radius: 14px; }
+  .product h3 { margin: 0; font-size: 17px; }
+  .product .kind { color: var(--muted); font-size: 12.5px; }
+  .product p { margin: 0; color: var(--text); font-size: 14px; flex: 1; }
+  .product .btn { align-self: flex-start; }
 </style>
 </head>
 <body>
@@ -146,6 +176,13 @@
     <div class="status sub" id="status">Đang tải dữ liệu...</div>
   </div>
 
+  <nav class="maintabs" id="maintabs" role="tablist">
+    <a href="#gia-vang" data-tab="gia-vang" class="on" role="tab">💰 Giá vàng</a>
+    <a href="#tien-ich-chrome" data-tab="tien-ich-chrome" role="tab">🧩 Tiện ích Chrome</a>
+    <a href="#game-android" data-tab="game-android" role="tab">🎮 Game Android</a>
+  </nav>
+
+  <div class="pane" id="pane-gia-vang">
   <div class="grid">
     <div class="card hl">
       <div class="label">Vàng thế giới quy đổi</div>
@@ -188,6 +225,8 @@
     <div class="chartbox"><canvas id="chart"></canvas></div>
     <div class="note" id="chartnote"></div>
   </section>
+
+  <div class="promo" data-product="sua-phu-de"></div>
 
   <section class="two">
     <div class="card">
@@ -232,6 +271,8 @@
     </div>
   </section>
 
+  <div class="promo" data-product="vit-nhay"></div>
+
   <section class="card">
     <h2>Tỷ giá ngoại tệ</h2>
     <table>
@@ -253,6 +294,21 @@
     Giá vàng miếng/nhẫn tại các cửa hàng thường cao hơn. Thông tin chỉ mang tính tham khảo, không phải lời khuyên mua bán hay đầu tư.<br>
     Nguồn dữ liệu: giá kim loại từ <a href="https://gold-api.com" target="_blank" rel="noopener">gold-api.com</a>;
     tỷ giá từ <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a>.
+  </div>
+  </div><!-- /pane-gia-vang -->
+
+  <div class="pane" id="pane-tien-ich-chrome" hidden>
+    <section class="card">
+      <h2>Tiện ích Chrome của Học 3 Giây</h2>
+      <div class="products" data-type="chrome"></div>
+    </section>
+  </div>
+
+  <div class="pane" id="pane-game-android" hidden>
+    <section class="card">
+      <h2>Game Android của Học 3 Giây</h2>
+      <div class="products" data-type="android"></div>
+    </section>
   </div>
 </div>
 
@@ -439,6 +495,50 @@
     st.range = +b.dataset.r; drawChart();
   });
 
+  // ---------- tab chính ----------
+  const TABS = ["gia-vang", "tien-ich-chrome", "game-android"];
+  function showTab(name) {
+    if (!TABS.includes(name)) name = "gia-vang";
+    TABS.forEach(t => { document.getElementById("pane-" + t).hidden = t !== name; });
+    document.querySelectorAll("#maintabs a").forEach(a => a.classList.toggle("on", a.dataset.tab === name));
+    if (name === "gia-vang" && chart) chart.resize();
+    if (window.postHeight) window.postHeight();
+  }
+  document.getElementById("maintabs").addEventListener("click", e => {
+    const a = e.target.closest("a[data-tab]"); if (!a) return;
+    e.preventDefault();
+    history.replaceState(null, "", "#" + a.dataset.tab);
+    showTab(a.dataset.tab);
+    window.scrollTo(0, 0);
+  });
+  window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
+
+  // ---------- sản phẩm (data/products.json) ----------
+  const esc = s => String(s || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const KIND = { chrome: "Tiện ích Chrome", android: "Game Android · Google Play" };
+  function link(p) {
+    return '<a class="btn" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.button || "Xem chi tiết") + " ↗</a>";
+  }
+  async function loadProducts() {
+    let items = [];
+    try { items = (await getJSON("data/products.json?t=" + Date.now())).items || []; } catch (e) { return; }
+    document.querySelectorAll(".products").forEach(box => {
+      const list = items.filter(p => p.type === box.dataset.type);
+      box.innerHTML = list.length ? list.map(p =>
+        '<div class="product"><div class="top"><img src="' + esc(p.icon) + '" alt="" loading="lazy">' +
+        "<div><h3>" + esc(p.name) + '</h3><div class="kind">' + esc(KIND[p.type] || "") + "</div></div></div>" +
+        "<p>" + esc(p.desc) + "</p>" + link(p) + "</div>").join("")
+        : '<p class="note">Sắp ra mắt.</p>';
+    });
+    document.querySelectorAll(".promo[data-product]").forEach(box => {
+      const p = items.find(x => x.id === box.dataset.product);
+      if (!p) return;
+      box.innerHTML = '<img src="' + esc(p.icon) + '" alt="" loading="lazy"><div class="txt"><div class="q">' + esc(p.promo || p.name) +
+        '</div><div class="n">' + esc(p.name) + " — " + esc(p.desc) + "</div></div>" + link(p);
+    });
+    if (window.postHeight) window.postHeight();
+  }
+
   // Khi được nhúng bằng iframe: báo chiều cao cho trang cha để khung tự co giãn.
   function postHeight() {
     if (window.parent !== window) window.parent.postMessage({ gvHeight: document.documentElement.scrollHeight }, "*");
@@ -447,6 +547,8 @@
   new ResizeObserver(postHeight).observe(document.body);
   window.addEventListener("load", postHeight);
 
+  showTab(location.hash.slice(1));
+  loadProducts();
   refresh();
   setInterval(refresh, 60 * 1000);
 })();
