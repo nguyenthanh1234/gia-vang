@@ -1,0 +1,204 @@
+{
+  "en": {
+    "name": "Tiếng Anh", "flag": "🇬🇧", "lang": "en-US",
+    "lessons": [
+      { "t": "Động từ “to be” (am / is / are)", "lv": "Cơ bản",
+        "f": "I + am · He/She/It + is · You/We/They + are",
+        "x": "Dùng “to be” để nói ai/cái gì là gì, ở đâu, như thế nào. Phủ định thêm “not”, câu hỏi đảo “to be” lên đầu câu.",
+        "ex": [
+          { "s": "I am a student.", "vi": "Tôi là học sinh." },
+          { "s": "She is not tired.", "vi": "Cô ấy không mệt." },
+          { "s": "Are they at home?", "vi": "Họ có ở nhà không?" }
+        ] },
+      { "t": "Thì hiện tại đơn", "lv": "Cơ bản",
+        "f": "S + V(s/es) · S + do/does + not + V · Do/Does + S + V?",
+        "x": "Diễn tả thói quen, sự thật hiển nhiên, lịch trình. Ngôi thứ ba số ít (he, she, it) thêm -s hoặc -es vào động từ.",
+        "ex": [
+          { "s": "I drink coffee every morning.", "vi": "Tôi uống cà phê mỗi sáng." },
+          { "s": "He works in a bank.", "vi": "Anh ấy làm việc ở ngân hàng." },
+          { "s": "Does she like music?", "vi": "Cô ấy có thích âm nhạc không?" }
+        ] },
+      { "t": "Thì hiện tại tiếp diễn", "lv": "Cơ bản",
+        "f": "S + am/is/are + V-ing",
+        "x": "Diễn tả hành động đang xảy ra ngay lúc nói hoặc kế hoạch gần đã định.",
+        "ex": [
+          { "s": "I am reading a book now.", "vi": "Bây giờ tôi đang đọc sách." },
+          { "s": "They are playing football.", "vi": "Họ đang chơi bóng đá." },
+          { "s": "We are meeting him tomorrow.", "vi": "Ngày mai chúng tôi sẽ gặp anh ấy." }
+        ] },
+      { "t": "Thì quá khứ đơn", "lv": "Cơ bản",
+        "f": "S + V2/V-ed · S + did not + V · Did + S + V?",
+        "x": "Diễn tả hành động đã xảy ra và kết thúc trong quá khứ. Động từ có quy tắc thêm -ed, động từ bất quy tắc phải học thuộc (go → went, eat → ate).",
+        "ex": [
+          { "s": "I visited my grandmother yesterday.", "vi": "Hôm qua tôi đã đến thăm bà." },
+          { "s": "She went to school by bus.", "vi": "Cô ấy đã đi học bằng xe buýt." },
+          { "s": "Did you eat breakfast?", "vi": "Bạn đã ăn sáng chưa?" }
+        ] },
+      { "t": "Thì tương lai với “will” và “be going to”", "lv": "Cơ bản",
+        "f": "S + will + V · S + am/is/are + going to + V",
+        "x": "“Will” dùng cho quyết định ngay lúc nói, lời hứa, dự đoán. “Be going to” dùng cho kế hoạch đã định trước hoặc dự đoán có căn cứ.",
+        "ex": [
+          { "s": "I will call you later.", "vi": "Lát nữa tôi sẽ gọi cho bạn." },
+          { "s": "We are going to travel to Da Lat.", "vi": "Chúng tôi định đi du lịch Đà Lạt." },
+          { "s": "Look at the clouds. It is going to rain.", "vi": "Nhìn mây kìa. Trời sắp mưa rồi." }
+        ] },
+      { "t": "Thì hiện tại hoàn thành", "lv": "Trung cấp",
+        "f": "S + have/has + V3/V-ed",
+        "x": "Nói về trải nghiệm, hành động vừa mới xảy ra, hoặc kéo dài từ quá khứ đến hiện tại. Hay đi với: already, yet, ever, never, for, since.",
+        "ex": [
+          { "s": "I have lived here for five years.", "vi": "Tôi đã sống ở đây được năm năm." },
+          { "s": "She has never seen snow.", "vi": "Cô ấy chưa bao giờ thấy tuyết." },
+          { "s": "Have you finished your homework yet?", "vi": "Bạn đã làm xong bài tập chưa?" }
+        ] },
+      { "t": "So sánh hơn và so sánh nhất", "lv": "Cơ bản",
+        "f": "Tính từ ngắn: -er than / the -est · Tính từ dài: more … than / the most …",
+        "x": "Tính từ một âm tiết thêm -er, -est. Tính từ dài dùng more, most. Một số từ đặc biệt: good → better → best, bad → worse → worst.",
+        "ex": [
+          { "s": "My house is bigger than yours.", "vi": "Nhà tôi to hơn nhà bạn." },
+          { "s": "Gold is more expensive than silver.", "vi": "Vàng đắt hơn bạc." },
+          { "s": "This is the best day of my life.", "vi": "Đây là ngày tuyệt nhất đời tôi." }
+        ] },
+      { "t": "Động từ khuyết thiếu: can, must, should", "lv": "Cơ bản",
+        "f": "S + can/must/should + V (nguyên mẫu)",
+        "x": "“Can”: có thể, biết làm. “Must”: phải (bắt buộc). “Should”: nên (lời khuyên). Sau chúng luôn là động từ nguyên mẫu, không thêm -s.",
+        "ex": [
+          { "s": "I can swim very well.", "vi": "Tôi bơi rất giỏi." },
+          { "s": "You must wear a helmet.", "vi": "Bạn phải đội mũ bảo hiểm." },
+          { "s": "You should drink more water.", "vi": "Bạn nên uống nhiều nước hơn." }
+        ] },
+      { "t": "Câu điều kiện loại 1", "lv": "Trung cấp",
+        "f": "If + S + V(hiện tại đơn), S + will + V",
+        "x": "Diễn tả điều có thể xảy ra ở hiện tại hoặc tương lai nếu điều kiện được đáp ứng.",
+        "ex": [
+          { "s": "If it rains, I will stay at home.", "vi": "Nếu trời mưa, tôi sẽ ở nhà." },
+          { "s": "If you study hard, you will pass the exam.", "vi": "Nếu bạn học chăm, bạn sẽ đỗ kỳ thi." },
+          { "s": "She will be happy if you call her.", "vi": "Cô ấy sẽ vui nếu bạn gọi cho cô ấy." }
+        ] },
+      { "t": "Câu bị động", "lv": "Trung cấp",
+        "f": "S + be + V3/V-ed (+ by O)",
+        "x": "Dùng khi muốn nhấn mạnh hành động hoặc đối tượng chịu tác động hơn là người làm. “to be” chia theo thì của câu.",
+        "ex": [
+          { "s": "English is spoken in many countries.", "vi": "Tiếng Anh được nói ở nhiều nước." },
+          { "s": "This house was built in 1990.", "vi": "Ngôi nhà này được xây năm 1990." },
+          { "s": "The letter will be sent tomorrow.", "vi": "Lá thư sẽ được gửi vào ngày mai." }
+        ] },
+      { "t": "Mạo từ a / an / the", "lv": "Cơ bản",
+        "f": "a + phụ âm · an + nguyên âm (âm) · the + thứ đã xác định",
+        "x": "“A/an” dùng cho danh từ đếm được số ít, nhắc tới lần đầu. “An” đứng trước âm nguyên âm (an apple, an hour). “The” dùng khi người nghe đã biết đang nói về cái nào.",
+        "ex": [
+          { "s": "I have a dog and an umbrella.", "vi": "Tôi có một con chó và một cái ô." },
+          { "s": "The dog is sleeping.", "vi": "Con chó (đó) đang ngủ." },
+          { "s": "The sun is very hot today.", "vi": "Hôm nay mặt trời rất nóng." }
+        ] },
+      { "t": "Giới từ chỉ thời gian: in / on / at", "lv": "Cơ bản",
+        "f": "in + tháng/năm/mùa · on + ngày/thứ · at + giờ",
+        "x": "Đi từ khoảng thời gian rộng đến hẹp: in (rộng nhất) → on → at (cụ thể nhất).",
+        "ex": [
+          { "s": "I was born in 2002.", "vi": "Tôi sinh năm 2002." },
+          { "s": "We have a meeting on Monday.", "vi": "Chúng ta có cuộc họp vào thứ Hai." },
+          { "s": "The shop opens at 8 o'clock.", "vi": "Cửa hàng mở cửa lúc 8 giờ." }
+        ] }
+    ]
+  },
+  "zh": {
+    "name": "Tiếng Trung", "flag": "🇨🇳", "lang": "zh-CN",
+    "lessons": [
+      { "t": "Câu chữ 是 (là)", "lv": "Cơ bản",
+        "f": "A + 是 + B · A + 不是 + B",
+        "x": "Dùng 是 để nói A là B. Phủ định dùng 不是. Lưu ý: không dùng 是 trước tính từ (nói 我很忙, không nói 我是忙).",
+        "ex": [
+          { "s": "我是学生。", "p": "Wǒ shì xuésheng.", "vi": "Tôi là học sinh." },
+          { "s": "他不是老师。", "p": "Tā bú shì lǎoshī.", "vi": "Anh ấy không phải giáo viên." },
+          { "s": "这是我的书。", "p": "Zhè shì wǒ de shū.", "vi": "Đây là sách của tôi." }
+        ] },
+      { "t": "Câu hỏi với 吗", "lv": "Cơ bản",
+        "f": "Câu trần thuật + 吗？",
+        "x": "Thêm 吗 vào cuối câu trần thuật để biến thành câu hỏi có/không. Trật tự từ giữ nguyên.",
+        "ex": [
+          { "s": "你好吗？", "p": "Nǐ hǎo ma?", "vi": "Bạn khỏe không?" },
+          { "s": "你是越南人吗？", "p": "Nǐ shì Yuènán rén ma?", "vi": "Bạn là người Việt Nam phải không?" },
+          { "s": "你喜欢喝茶吗？", "p": "Nǐ xǐhuan hē chá ma?", "vi": "Bạn có thích uống trà không?" }
+        ] },
+      { "t": "Phủ định với 不 và 没", "lv": "Cơ bản",
+        "f": "不 + V/Adj (hiện tại, tương lai, ý muốn) · 没 + V (quá khứ, chưa xảy ra)",
+        "x": "不 phủ định thói quen, ý muốn, tính chất. 没 (没有) phủ định việc đã xảy ra hoặc sự sở hữu. Riêng 有 luôn phủ định bằng 没有.",
+        "ex": [
+          { "s": "我不喝咖啡。", "p": "Wǒ bù hē kāfēi.", "vi": "Tôi không uống cà phê." },
+          { "s": "他昨天没来。", "p": "Tā zuótiān méi lái.", "vi": "Hôm qua anh ấy không đến." },
+          { "s": "我没有钱。", "p": "Wǒ méiyǒu qián.", "vi": "Tôi không có tiền." }
+        ] },
+      { "t": "Trợ từ sở hữu 的", "lv": "Cơ bản",
+        "f": "Người/vật sở hữu + 的 + danh từ",
+        "x": "的 nối người sở hữu với vật được sở hữu, giống “của” nhưng đứng trước danh từ. Với người thân thiết thường có thể bỏ 的 (我妈妈).",
+        "ex": [
+          { "s": "这是我的手机。", "p": "Zhè shì wǒ de shǒujī.", "vi": "Đây là điện thoại của tôi." },
+          { "s": "老师的名字是什么？", "p": "Lǎoshī de míngzi shì shénme?", "vi": "Tên của cô giáo là gì?" },
+          { "s": "我妈妈是医生。", "p": "Wǒ māma shì yīshēng.", "vi": "Mẹ tôi là bác sĩ." }
+        ] },
+      { "t": "Lượng từ 个, 本, 杯, 只", "lv": "Cơ bản",
+        "f": "Số từ + lượng từ + danh từ",
+        "x": "Tiếng Trung luôn cần lượng từ giữa số và danh từ. 个 dùng chung nhiều nhất, 本 cho sách, 杯 cho cốc/ly, 只 cho nhiều con vật. Chú ý: “hai” đứng trước lượng từ đọc là 两, không phải 二.",
+        "ex": [
+          { "s": "我有两个哥哥。", "p": "Wǒ yǒu liǎng ge gēge.", "vi": "Tôi có hai anh trai." },
+          { "s": "我买了三本书。", "p": "Wǒ mǎi le sān běn shū.", "vi": "Tôi đã mua ba quyển sách." },
+          { "s": "请给我一杯水。", "p": "Qǐng gěi wǒ yì bēi shuǐ.", "vi": "Làm ơn cho tôi một cốc nước." }
+        ] },
+      { "t": "Trợ từ 了 (hoàn thành, thay đổi)", "lv": "Trung cấp",
+        "f": "V + 了 (+ tân ngữ) · Câu + 了",
+        "x": "了 sau động từ cho biết hành động đã hoàn thành. 了 cuối câu cho biết có sự thay đổi trạng thái (“rồi”).",
+        "ex": [
+          { "s": "我吃了早饭。", "p": "Wǒ chī le zǎofàn.", "vi": "Tôi đã ăn sáng." },
+          { "s": "下雨了。", "p": "Xià yǔ le.", "vi": "Trời mưa rồi." },
+          { "s": "他已经回家了。", "p": "Tā yǐjīng huí jiā le.", "vi": "Anh ấy đã về nhà rồi." }
+        ] },
+      { "t": "Trải nghiệm với 过", "lv": "Trung cấp",
+        "f": "V + 过 · 没 + V + 过",
+        "x": "过 sau động từ diễn tả “đã từng” làm gì. Phủ định: 没 + V + 过 (“chưa từng”).",
+        "ex": [
+          { "s": "我去过北京。", "p": "Wǒ qù guo Běijīng.", "vi": "Tôi đã từng đến Bắc Kinh." },
+          { "s": "你吃过榴莲吗？", "p": "Nǐ chī guo liúlián ma?", "vi": "Bạn đã từng ăn sầu riêng chưa?" },
+          { "s": "她没看过这部电影。", "p": "Tā méi kàn guo zhè bù diànyǐng.", "vi": "Cô ấy chưa từng xem bộ phim này." }
+        ] },
+      { "t": "Đang làm gì: 在 + động từ", "lv": "Cơ bản",
+        "f": "S + 在 + V (+ 呢)",
+        "x": "在 đặt trước động từ để diễn tả hành động đang diễn ra. Có thể thêm 呢 ở cuối câu cho tự nhiên hơn.",
+        "ex": [
+          { "s": "我在看书。", "p": "Wǒ zài kàn shū.", "vi": "Tôi đang đọc sách." },
+          { "s": "妈妈在做饭呢。", "p": "Māma zài zuò fàn ne.", "vi": "Mẹ đang nấu cơm." },
+          { "s": "你在做什么？", "p": "Nǐ zài zuò shénme?", "vi": "Bạn đang làm gì vậy?" }
+        ] },
+      { "t": "So sánh với 比", "lv": "Trung cấp",
+        "f": "A + 比 + B + tính từ (+ mức độ)",
+        "x": "比 dùng để so sánh A hơn B. Không dùng 很 trước tính từ trong câu so sánh; muốn nói “hơn nhiều” thêm 多了 hoặc 得多 sau tính từ.",
+        "ex": [
+          { "s": "今天比昨天热。", "p": "Jīntiān bǐ zuótiān rè.", "vi": "Hôm nay nóng hơn hôm qua." },
+          { "s": "黄金比白银贵多了。", "p": "Huángjīn bǐ báiyín guì duō le.", "vi": "Vàng đắt hơn bạc nhiều." },
+          { "s": "他比我高。", "p": "Tā bǐ wǒ gāo.", "vi": "Anh ấy cao hơn tôi." }
+        ] },
+      { "t": "Muốn, có thể: 想, 要, 会, 能", "lv": "Cơ bản",
+        "f": "S + 想/要/会/能 + V",
+        "x": "想: muốn (nhẹ nhàng). 要: muốn, sẽ (dứt khoát). 会: biết làm (do học) hoặc sẽ. 能: có thể (đủ điều kiện, khả năng).",
+        "ex": [
+          { "s": "我想去旅行。", "p": "Wǒ xiǎng qù lǚxíng.", "vi": "Tôi muốn đi du lịch." },
+          { "s": "她会说汉语。", "p": "Tā huì shuō Hànyǔ.", "vi": "Cô ấy biết nói tiếng Trung." },
+          { "s": "明天我不能来。", "p": "Míngtiān wǒ bù néng lái.", "vi": "Ngày mai tôi không thể đến." }
+        ] },
+      { "t": "Trật tự câu: thời gian, nơi chốn", "lv": "Cơ bản",
+        "f": "S + thời gian + 在 + nơi chốn + V + tân ngữ",
+        "x": "Khác tiếng Việt, tiếng Trung đặt thời gian và nơi chốn TRƯỚC động từ. Thời gian có thể đứng đầu câu.",
+        "ex": [
+          { "s": "我明天在家休息。", "p": "Wǒ míngtiān zài jiā xiūxi.", "vi": "Ngày mai tôi nghỉ ở nhà." },
+          { "s": "他每天在公司工作。", "p": "Tā měitiān zài gōngsī gōngzuò.", "vi": "Anh ấy làm việc ở công ty mỗi ngày." },
+          { "s": "晚上我们在饭馆吃饭。", "p": "Wǎnshang wǒmen zài fànguǎn chī fàn.", "vi": "Buổi tối chúng tôi ăn ở nhà hàng." }
+        ] },
+      { "t": "Bổ ngữ trình độ với 得", "lv": "Trung cấp",
+        "f": "S + V + 得 + (很) + tính từ",
+        "x": "得 nối động từ với lời nhận xét về mức độ, cách thức của hành động. Nếu có tân ngữ thì lặp lại động từ: 说汉语说得很好.",
+        "ex": [
+          { "s": "他跑得很快。", "p": "Tā pǎo de hěn kuài.", "vi": "Anh ấy chạy rất nhanh." },
+          { "s": "你说汉语说得很好。", "p": "Nǐ shuō Hànyǔ shuō de hěn hǎo.", "vi": "Bạn nói tiếng Trung rất giỏi." },
+          { "s": "她唱得不太好。", "p": "Tā chàng de bú tài hǎo.", "vi": "Cô ấy hát không hay lắm." }
+        ] }
+    ]
+  }
+}
