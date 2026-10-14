@@ -128,6 +128,10 @@
   .product .kind { color: var(--muted); font-size: 12.5px; }
   .product p { margin: 0; color: var(--text); font-size: 14px; flex: 1; }
   .product .btn { align-self: flex-start; }
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn.btn2 { background: var(--card); color: var(--leaf); border: 1px solid var(--leaf); }
+  .product .badge { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 700;
+    color: #fff; background: linear-gradient(90deg, var(--leaf), var(--gold)); vertical-align: middle; }
 
   /* ---------- Banner thương hiệu ---------- */
   .brand { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; }
@@ -1005,7 +1009,10 @@
   const esc = s => String(s || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const KIND = { chrome: "Tiện ích Chrome", android: "Game Android · Google Play" };
   function link(p) {
-    return '<a class="btn" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.button || "Xem chi tiết") + " ↗</a>";
+    const main = '<a class="btn" href="' + esc(p.url) + '" target="_blank" rel="noopener"' + (p.download ? " download" : "") + ">" +
+      esc(p.button || "Xem chi tiết") + (p.download ? " ⬇" : " ↗") + "</a>";
+    const extra = (p.extra || []).map(x => '<a class="btn btn2" href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.label) + "</a>").join("");
+    return extra ? '<div class="btns">' + main + extra + "</div>" : main;
   }
   async function loadProducts() {
     let items = [];
@@ -1014,7 +1021,8 @@
       const list = items.filter(p => p.type === box.dataset.type);
       box.innerHTML = list.length ? list.map(p =>
         '<div class="product"><div class="top"><img src="' + esc(p.icon) + '" alt="" loading="lazy">' +
-        "<div><h3>" + esc(p.name) + '</h3><div class="kind">' + esc(KIND[p.type] || "") + "</div></div></div>" +
+        "<div><h3>" + esc(p.name) + (p.badge ? ' <span class="badge">' + esc(p.badge) + "</span>" : "") +
+        '</h3><div class="kind">' + esc(p.kind || KIND[p.type] || "") + "</div></div></div>" +
         "<p>" + esc(p.desc) + "</p>" + link(p) + "</div>").join("")
         : '<p class="note">Sắp ra mắt.</p>';
     });

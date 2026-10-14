@@ -1,6 +1,29 @@
 {
   "items": [
     {
+      "id": "youtube-gif-comment",
+      "type": "chrome",
+      "name": "YouTube GIF Comment",
+      "badge": "Mới",
+      "kind": "Tiện ích Chrome / Edge / Cốc Cốc · cài từ file",
+      "icon": "assets/youtube-gif-comment.png",
+      "desc": "Bình luận bằng ảnh động trên YouTube: tìm GIF, 24 sticker động, tự tạo sticker và xuất file .gif. Xem GIF miễn phí, bản trọn đời 29.000đ.",
+      "url": "downloads/youtube-gif-comment.zip",
+      "download": true,
+      "button": "Tải tiện ích",
+      "extra": [
+        {
+          "label": "Hướng dẫn cài",
+          "url": "cai-dat-youtube-gif.html"
+        },
+        {
+          "label": "Mua 29.000đ ↗",
+          "url": "https://ytgif-thanh-toan.ytgif-thanh-toan.workers.dev"
+        }
+      ],
+      "promo": "Muốn bình luận YouTube bằng ảnh động?"
+    },
+    {
       "id": "sua-phu-de",
       "type": "chrome",
       "name": "Sửa Phụ Đề cho YouTube",
