@@ -148,6 +148,38 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chips a { background: rgba(0,0,0,.25); } }
   @media (max-width: 600px) { .brand .coin { width: 68px; height: 68px; } .brand-name { font-size: 30px; } .brand-tag { font-size: 11px; letter-spacing: 1px; } }
 
+  /* ---------- Từ vựng hôm nay ---------- */
+  .wotd { position: relative; z-index: 1; margin-top: 16px; display: flex; gap: 16px; align-items: center;
+    padding: 14px 16px; border-radius: 16px; background: rgba(255,255,255,.72); border: 1px solid var(--line); backdrop-filter: blur(2px); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wotd { background: rgba(0,0,0,.28); } }
+  .wotd[hidden] { display: none; }
+  .wotd-pic { flex: 0 0 auto; width: 84px; height: 84px; border-radius: 20px; display: grid; place-items: center; font-size: 52px; line-height: 1;
+    background: radial-gradient(circle at 30% 25%, #fff, var(--gold-soft) 55%, var(--petal-soft)); box-shadow: inset 0 0 0 2px rgba(255,255,255,.7); }
+  .wotd-body { flex: 1; min-width: 0; }
+  .wotd-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--leaf); }
+  .wotd-word { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin-top: 2px; }
+  .wotd-word #wotd-w { font-size: 28px; font-weight: 800; color: var(--text); }
+  .wotd-ipa { font-size: 16px; color: var(--accent); font-family: "Segoe UI", "Lucida Sans Unicode", Arial, sans-serif; }
+  .speak { border: 0; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; font-size: 17px; line-height: 1; align-self: center;
+    background: linear-gradient(135deg, var(--leaf), var(--gold)); color: #fff; box-shadow: 0 2px 6px rgba(79,138,58,.35); }
+  .speak.small { width: 26px; height: 26px; font-size: 13px; vertical-align: middle; margin-left: 4px; }
+  .speak:active { transform: scale(.92); }
+  .speak.playing { animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(79,138,58,.45); } 50% { box-shadow: 0 0 0 8px rgba(79,138,58,0); } }
+  .wotd-mean { margin-top: 2px; font-size: 15px; }
+  .wotd-mean i { color: var(--muted); font-size: 13px; }
+  .wotd-ex { margin-top: 6px; font-size: 14px; color: var(--text); font-style: italic; }
+  .wotd-exvi { color: var(--muted); font-style: normal; font-size: 13px; }
+  .wotd-nav { display: flex; flex-direction: column; gap: 6px; }
+  .wotd-nav button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--text);
+    font-size: 20px; line-height: 1; cursor: pointer; }
+  @media (max-width: 600px) {
+    .wotd { flex-wrap: wrap; gap: 12px; }
+    .wotd-pic { width: 64px; height: 64px; font-size: 40px; }
+    .wotd-word #wotd-w { font-size: 24px; }
+    .wotd-nav { flex-direction: row; width: 100%; justify-content: flex-end; }
+  }
+
   /* Tiêu đề khu giá vàng (nằm trong tab) */
   .sechead { margin: 0 0 14px; }
   .sechead h1 { font-size: 26px; display: flex; align-items: center; gap: 10px; margin: 0; }
@@ -208,10 +240,26 @@
         <div class="brand-hello" id="hello">Chào bạn!</div>
       </div>
     </div>
-    <div class="chips">
-      <a href="#gia-vang" data-goto="gia-vang">💰 Giá vàng cập nhật mỗi phút</a>
-      <a href="#tien-ich-chrome" data-goto="tien-ich-chrome">🧩 Tiện ích Chrome miễn phí</a>
-      <a href="#game-android" data-goto="game-android">🎮 Game giải trí</a>
+    <div class="wotd" id="wotd" hidden>
+      <div class="wotd-pic" id="wotd-pic" aria-hidden="true"></div>
+      <div class="wotd-body">
+        <div class="wotd-label">📘 Từ vựng tiếng Anh hôm nay</div>
+        <div class="wotd-word">
+          <span id="wotd-w"></span>
+          <span class="wotd-ipa" id="wotd-ipa"></span>
+          <button type="button" class="speak" id="wotd-say" title="Nghe phát âm" aria-label="Nghe phát âm">🔊</button>
+        </div>
+        <div class="wotd-mean"><i id="wotd-t"></i> <b id="wotd-vi"></b></div>
+        <div class="wotd-ex">
+          <span id="wotd-ex"></span>
+          <button type="button" class="speak small" id="wotd-say-ex" title="Nghe câu ví dụ" aria-label="Nghe câu ví dụ">🔊</button>
+          <div class="wotd-exvi" id="wotd-exvi"></div>
+        </div>
+      </div>
+      <div class="wotd-nav">
+        <button type="button" id="wotd-prev" aria-label="Từ trước">‹</button>
+        <button type="button" id="wotd-next" aria-label="Từ khác">›</button>
+      </div>
     </div>
   </div>
 
@@ -564,12 +612,50 @@
     window.scrollTo(0, 0);
   });
   window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
-  document.querySelectorAll(".chips a[data-goto]").forEach(a => a.addEventListener("click", e => {
-    e.preventDefault();
-    history.replaceState(null, "", "#" + a.dataset.goto);
-    showTab(a.dataset.goto);
-    document.getElementById("maintabs").scrollIntoView({ behavior: "smooth", block: "start" });
-  }));
+  // ---------- Từ vựng tiếng Anh hôm nay (data/words.json) ----------
+  const wotd = { list: [], i: 0 };
+  function dayIndex(n) {
+    const d = new Date(), start = new Date(d.getFullYear(), 0, 0);
+    return Math.floor((d - start) / 86400000) % n;
+  }
+  function englishVoice() {
+    const vs = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+    return vs.find(v => /en-US/i.test(v.lang) && /Google|Microsoft|Samantha|Aria|Jenny/i.test(v.name))
+        || vs.find(v => /en-US/i.test(v.lang)) || vs.find(v => /^en/i.test(v.lang)) || null;
+  }
+  function say(text, btn) {
+    if (!window.speechSynthesis) { alert("Trình duyệt này chưa hỗ trợ đọc phát âm."); return; }
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US"; u.rate = 0.85;
+    const v = englishVoice(); if (v) u.voice = v;
+    btn.classList.add("playing");
+    u.onend = u.onerror = () => btn.classList.remove("playing");
+    speechSynthesis.speak(u);
+  }
+  function showWord() {
+    const w = wotd.list[wotd.i]; if (!w) return;
+    document.getElementById("wotd-pic").textContent = w.e;
+    document.getElementById("wotd-w").textContent = w.w;
+    document.getElementById("wotd-ipa").textContent = w.ipa;
+    document.getElementById("wotd-t").textContent = "(" + w.t + ")";
+    document.getElementById("wotd-vi").textContent = w.vi;
+    document.getElementById("wotd-ex").textContent = "“" + w.ex + "”";
+    document.getElementById("wotd-exvi").textContent = w.exvi;
+    if (window.postHeight) window.postHeight();
+  }
+  async function loadWords() {
+    try { wotd.list = (await getJSON("data/words.json")).items || []; } catch (e) { return; }
+    if (!wotd.list.length) return;
+    wotd.i = dayIndex(wotd.list.length);
+    document.getElementById("wotd").hidden = false;
+    showWord();
+  }
+  document.getElementById("wotd-say").addEventListener("click", e => say(wotd.list[wotd.i].w, e.currentTarget));
+  document.getElementById("wotd-say-ex").addEventListener("click", e => say(wotd.list[wotd.i].ex, e.currentTarget));
+  document.getElementById("wotd-next").addEventListener("click", () => { wotd.i = (wotd.i + 1) % wotd.list.length; showWord(); });
+  document.getElementById("wotd-prev").addEventListener("click", () => { wotd.i = (wotd.i - 1 + wotd.list.length) % wotd.list.length; showWord(); });
+  if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
   (function hello() {
     const d = new Date(), h = d.getHours();
     const g = h < 11 ? "Chào buổi sáng" : h < 14 ? "Chào buổi trưa" : h < 18 ? "Chào buổi chiều" : "Chào buổi tối";
@@ -618,6 +704,7 @@
 
   showTab(location.hash.slice(1));
   loadProducts();
+  loadWords();
   refresh();
   setInterval(refresh, 60 * 1000);
 })();
