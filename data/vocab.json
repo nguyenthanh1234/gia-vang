@@ -1,0 +1,132 @@
+{
+  "en": {
+    "name": "Tiếng Anh", "flag": "🇬🇧", "lang": "en-US",
+    "topics": [
+      { "id": "family", "name": "Gia đình", "e": "👨‍👩‍👧", "words": [
+        { "w": "father", "p": "/ˈfɑːðər/", "vi": "bố", "e": "👨" },
+        { "w": "mother", "p": "/ˈmʌðər/", "vi": "mẹ", "e": "👩" },
+        { "w": "brother", "p": "/ˈbrʌðər/", "vi": "anh/em trai", "e": "👦" },
+        { "w": "sister", "p": "/ˈsɪstər/", "vi": "chị/em gái", "e": "👧" },
+        { "w": "grandmother", "p": "/ˈɡrænmʌðər/", "vi": "bà", "e": "👵" },
+        { "w": "grandfather", "p": "/ˈɡrænfɑːðər/", "vi": "ông", "e": "👴" },
+        { "w": "baby", "p": "/ˈbeɪbi/", "vi": "em bé", "e": "👶" },
+        { "w": "uncle", "p": "/ˈʌŋkl/", "vi": "chú, bác, cậu", "e": "🧔" }
+      ]},
+      { "id": "food", "name": "Đồ ăn", "e": "🍜", "words": [
+        { "w": "rice", "p": "/raɪs/", "vi": "cơm, gạo", "e": "🍚" },
+        { "w": "noodles", "p": "/ˈnuːdlz/", "vi": "mì, bún, phở", "e": "🍜" },
+        { "w": "bread", "p": "/bred/", "vi": "bánh mì", "e": "🥖" },
+        { "w": "egg", "p": "/eɡ/", "vi": "quả trứng", "e": "🥚" },
+        { "w": "chicken", "p": "/ˈtʃɪkɪn/", "vi": "thịt gà", "e": "🍗" },
+        { "w": "fish", "p": "/fɪʃ/", "vi": "cá", "e": "🐟" },
+        { "w": "vegetable", "p": "/ˈvedʒtəbl/", "vi": "rau", "e": "🥬" },
+        { "w": "milk", "p": "/mɪlk/", "vi": "sữa", "e": "🥛" }
+      ]},
+      { "id": "animals", "name": "Động vật", "e": "🐾", "words": [
+        { "w": "dog", "p": "/dɔːɡ/", "vi": "con chó", "e": "🐶" },
+        { "w": "cat", "p": "/kæt/", "vi": "con mèo", "e": "🐱" },
+        { "w": "duck", "p": "/dʌk/", "vi": "con vịt", "e": "🦆" },
+        { "w": "bird", "p": "/bɜːrd/", "vi": "con chim", "e": "🐦" },
+        { "w": "elephant", "p": "/ˈelɪfənt/", "vi": "con voi", "e": "🐘" },
+        { "w": "tiger", "p": "/ˈtaɪɡər/", "vi": "con hổ", "e": "🐯" },
+        { "w": "rabbit", "p": "/ˈræbɪt/", "vi": "con thỏ", "e": "🐰" },
+        { "w": "cow", "p": "/kaʊ/", "vi": "con bò", "e": "🐄" }
+      ]},
+      { "id": "colors", "name": "Màu sắc", "e": "🎨", "words": [
+        { "w": "red", "p": "/red/", "vi": "màu đỏ", "e": "🔴" },
+        { "w": "blue", "p": "/bluː/", "vi": "màu xanh dương", "e": "🔵" },
+        { "w": "green", "p": "/ɡriːn/", "vi": "màu xanh lá", "e": "🟢" },
+        { "w": "yellow", "p": "/ˈjeloʊ/", "vi": "màu vàng", "e": "🟡" },
+        { "w": "black", "p": "/blæk/", "vi": "màu đen", "e": "⚫" },
+        { "w": "white", "p": "/waɪt/", "vi": "màu trắng", "e": "⚪" },
+        { "w": "orange", "p": "/ˈɔːrɪndʒ/", "vi": "màu cam", "e": "🟠" },
+        { "w": "purple", "p": "/ˈpɜːrpl/", "vi": "màu tím", "e": "🟣" }
+      ]},
+      { "id": "numbers", "name": "Số đếm", "e": "🔢", "words": [
+        { "w": "one", "p": "/wʌn/", "vi": "một", "e": "1️⃣" },
+        { "w": "two", "p": "/tuː/", "vi": "hai", "e": "2️⃣" },
+        { "w": "three", "p": "/θriː/", "vi": "ba", "e": "3️⃣" },
+        { "w": "four", "p": "/fɔːr/", "vi": "bốn", "e": "4️⃣" },
+        { "w": "five", "p": "/faɪv/", "vi": "năm", "e": "5️⃣" },
+        { "w": "ten", "p": "/ten/", "vi": "mười", "e": "🔟" },
+        { "w": "hundred", "p": "/ˈhʌndrəd/", "vi": "một trăm", "e": "💯" },
+        { "w": "thousand", "p": "/ˈθaʊznd/", "vi": "một nghìn", "e": "🔢" }
+      ]},
+      { "id": "shopping", "name": "Mua sắm & tiền", "e": "🛍️", "words": [
+        { "w": "money", "p": "/ˈmʌni/", "vi": "tiền", "e": "💵" },
+        { "w": "price", "p": "/praɪs/", "vi": "giá", "e": "🏷️" },
+        { "w": "cheap", "p": "/tʃiːp/", "vi": "rẻ", "e": "💸" },
+        { "w": "expensive", "p": "/ɪkˈspensɪv/", "vi": "đắt", "e": "💎" },
+        { "w": "buy", "p": "/baɪ/", "vi": "mua", "e": "🛒" },
+        { "w": "sell", "p": "/sel/", "vi": "bán", "e": "🏪" },
+        { "w": "gold", "p": "/ɡoʊld/", "vi": "vàng", "e": "🪙" },
+        { "w": "bank", "p": "/bæŋk/", "vi": "ngân hàng", "e": "🏦" }
+      ]}
+    ]
+  },
+  "zh": {
+    "name": "Tiếng Trung", "flag": "🇨🇳", "lang": "zh-CN",
+    "topics": [
+      { "id": "family", "name": "Gia đình", "e": "👨‍👩‍👧", "words": [
+        { "w": "爸爸", "p": "bàba", "vi": "bố", "e": "👨" },
+        { "w": "妈妈", "p": "māma", "vi": "mẹ", "e": "👩" },
+        { "w": "哥哥", "p": "gēge", "vi": "anh trai", "e": "👦" },
+        { "w": "姐姐", "p": "jiějie", "vi": "chị gái", "e": "👧" },
+        { "w": "弟弟", "p": "dìdi", "vi": "em trai", "e": "🧒" },
+        { "w": "妹妹", "p": "mèimei", "vi": "em gái", "e": "👧" },
+        { "w": "奶奶", "p": "nǎinai", "vi": "bà nội", "e": "👵" },
+        { "w": "爷爷", "p": "yéye", "vi": "ông nội", "e": "👴" }
+      ]},
+      { "id": "food", "name": "Đồ ăn", "e": "🍜", "words": [
+        { "w": "米饭", "p": "mǐfàn", "vi": "cơm", "e": "🍚" },
+        { "w": "面条", "p": "miàntiáo", "vi": "mì sợi", "e": "🍜" },
+        { "w": "面包", "p": "miànbāo", "vi": "bánh mì", "e": "🥖" },
+        { "w": "鸡蛋", "p": "jīdàn", "vi": "trứng gà", "e": "🥚" },
+        { "w": "鱼", "p": "yú", "vi": "cá", "e": "🐟" },
+        { "w": "水果", "p": "shuǐguǒ", "vi": "trái cây", "e": "🍎" },
+        { "w": "茶", "p": "chá", "vi": "trà", "e": "🍵" },
+        { "w": "水", "p": "shuǐ", "vi": "nước", "e": "💧" }
+      ]},
+      { "id": "animals", "name": "Động vật", "e": "🐾", "words": [
+        { "w": "狗", "p": "gǒu", "vi": "con chó", "e": "🐶" },
+        { "w": "猫", "p": "māo", "vi": "con mèo", "e": "🐱" },
+        { "w": "鸭子", "p": "yāzi", "vi": "con vịt", "e": "🦆" },
+        { "w": "鸟", "p": "niǎo", "vi": "con chim", "e": "🐦" },
+        { "w": "大象", "p": "dàxiàng", "vi": "con voi", "e": "🐘" },
+        { "w": "老虎", "p": "lǎohǔ", "vi": "con hổ", "e": "🐯" },
+        { "w": "兔子", "p": "tùzi", "vi": "con thỏ", "e": "🐰" },
+        { "w": "牛", "p": "niú", "vi": "con bò", "e": "🐄" }
+      ]},
+      { "id": "colors", "name": "Màu sắc", "e": "🎨", "words": [
+        { "w": "红色", "p": "hóngsè", "vi": "màu đỏ", "e": "🔴" },
+        { "w": "蓝色", "p": "lánsè", "vi": "màu xanh dương", "e": "🔵" },
+        { "w": "绿色", "p": "lǜsè", "vi": "màu xanh lá", "e": "🟢" },
+        { "w": "黄色", "p": "huángsè", "vi": "màu vàng", "e": "🟡" },
+        { "w": "黑色", "p": "hēisè", "vi": "màu đen", "e": "⚫" },
+        { "w": "白色", "p": "báisè", "vi": "màu trắng", "e": "⚪" },
+        { "w": "橙色", "p": "chéngsè", "vi": "màu cam", "e": "🟠" },
+        { "w": "紫色", "p": "zǐsè", "vi": "màu tím", "e": "🟣" }
+      ]},
+      { "id": "numbers", "name": "Số đếm", "e": "🔢", "words": [
+        { "w": "一", "p": "yī", "vi": "một", "e": "1️⃣" },
+        { "w": "二", "p": "èr", "vi": "hai", "e": "2️⃣" },
+        { "w": "三", "p": "sān", "vi": "ba", "e": "3️⃣" },
+        { "w": "四", "p": "sì", "vi": "bốn", "e": "4️⃣" },
+        { "w": "五", "p": "wǔ", "vi": "năm", "e": "5️⃣" },
+        { "w": "十", "p": "shí", "vi": "mười", "e": "🔟" },
+        { "w": "一百", "p": "yìbǎi", "vi": "một trăm", "e": "💯" },
+        { "w": "一千", "p": "yìqiān", "vi": "một nghìn", "e": "🔢" }
+      ]},
+      { "id": "shopping", "name": "Mua sắm & tiền", "e": "🛍️", "words": [
+        { "w": "钱", "p": "qián", "vi": "tiền", "e": "💵" },
+        { "w": "价格", "p": "jiàgé", "vi": "giá cả", "e": "🏷️" },
+        { "w": "便宜", "p": "piányi", "vi": "rẻ", "e": "💸" },
+        { "w": "贵", "p": "guì", "vi": "đắt", "e": "💎" },
+        { "w": "买", "p": "mǎi", "vi": "mua", "e": "🛒" },
+        { "w": "卖", "p": "mài", "vi": "bán", "e": "🏪" },
+        { "w": "黄金", "p": "huángjīn", "vi": "vàng (kim loại)", "e": "🪙" },
+        { "w": "银行", "p": "yínháng", "vi": "ngân hàng", "e": "🏦" }
+      ]}
+    ]
+  }
+}

@@ -180,6 +180,27 @@
     .wotd-nav { flex-direction: row; width: 100%; justify-content: flex-end; }
   }
 
+  /* ---------- Tab Từ vựng ---------- */
+  .langs, .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .langs button, .topics button { border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer;
+    font: inherit; font-weight: 600; border-radius: 999px; }
+  .langs button { padding: 8px 18px; font-size: 15px; }
+  .topics button { padding: 6px 12px; font-size: 13px; }
+  .langs button.on { color: #fff; border-color: transparent; background: linear-gradient(90deg, var(--leaf), var(--gold)); }
+  .topics button.on { border-color: var(--leaf); background: var(--leaf-soft); color: var(--leaf); }
+  .vgrid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .vcard { position: relative; cursor: pointer; text-align: center; padding: 14px 10px 12px; border-radius: 16px;
+    background: linear-gradient(170deg, var(--card), var(--gold-soft)); border: 1px solid var(--line);
+    transition: transform .15s ease, box-shadow .15s ease; }
+  .vcard:hover, .vcard:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.08); outline: none; border-color: var(--leaf); }
+  .vpic { font-size: 46px; line-height: 1.1; }
+  .vw { margin-top: 6px; font-size: 20px; font-weight: 800; color: var(--text); word-break: break-word; }
+  .vw.zh { font-size: 28px; font-weight: 700; font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; }
+  .vp { color: var(--accent); font-size: 14px; }
+  .vvi { margin-top: 4px; color: var(--muted); font-size: 13.5px; }
+  .vcard .speak { position: absolute; top: 8px; right: 8px; display: grid; place-items: center; }
+  @media (max-width: 480px) { .vgrid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .vpic { font-size: 40px; } }
+
   /* Tiêu đề khu giá vàng (nằm trong tab) */
   .sechead { margin: 0 0 14px; }
   .sechead h1 { font-size: 26px; display: flex; align-items: center; gap: 10px; margin: 0; }
@@ -267,6 +288,7 @@
     <a href="#gia-vang" data-tab="gia-vang" class="on" role="tab">💰 Giá vàng</a>
     <a href="#tien-ich-chrome" data-tab="tien-ich-chrome" role="tab">🧩 Tiện ích Chrome</a>
     <a href="#game-android" data-tab="game-android" role="tab">🎮 Game Android</a>
+    <a href="#tu-vung" data-tab="tu-vung" role="tab">📚 Từ vựng</a>
   </nav>
 
   <div class="pane" id="pane-gia-vang">
@@ -401,6 +423,16 @@
     <section class="card">
       <h2>Tiện ích Chrome của Học 3 Giây</h2>
       <div class="products" data-type="chrome"></div>
+    </section>
+  </div>
+
+  <div class="pane" id="pane-tu-vung" hidden>
+    <section class="card">
+      <h2>Học từ vựng theo chủ đề</h2>
+      <div class="langs" id="v-langs"></div>
+      <div class="topics" id="v-topics"></div>
+      <div class="vgrid" id="v-grid"></div>
+      <div class="note">Bấm 🔊 hoặc bấm vào thẻ để nghe phát âm. Giọng đọc dùng sẵn trong trình duyệt của bạn.</div>
     </section>
   </div>
 
@@ -596,7 +628,7 @@
   });
 
   // ---------- tab chính ----------
-  const TABS = ["gia-vang", "tien-ich-chrome", "game-android"];
+  const TABS = ["gia-vang", "tien-ich-chrome", "game-android", "tu-vung"];
   function showTab(name) {
     if (!TABS.includes(name)) name = "gia-vang";
     TABS.forEach(t => { document.getElementById("pane-" + t).hidden = t !== name; });
@@ -618,17 +650,20 @@
     const d = new Date(), start = new Date(d.getFullYear(), 0, 0);
     return Math.floor((d - start) / 86400000) % n;
   }
-  function englishVoice() {
+  function pickVoice(lang) {
     const vs = window.speechSynthesis ? speechSynthesis.getVoices() : [];
-    return vs.find(v => /en-US/i.test(v.lang) && /Google|Microsoft|Samantha|Aria|Jenny/i.test(v.name))
-        || vs.find(v => /en-US/i.test(v.lang)) || vs.find(v => /^en/i.test(v.lang)) || null;
+    const base = lang.split("-")[0], exact = new RegExp("^" + lang, "i"), loose = new RegExp("^" + base, "i");
+    return vs.find(v => exact.test(v.lang) && /Google|Microsoft|Samantha|Aria|Jenny|Xiaoxiao|Ting/i.test(v.name))
+        || vs.find(v => exact.test(v.lang)) || vs.find(v => loose.test(v.lang)) || null;
   }
-  function say(text, btn) {
+  function say(text, btn, lang = "en-US") {
     if (!window.speechSynthesis) { alert("Trình duyệt này chưa hỗ trợ đọc phát âm."); return; }
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US"; u.rate = 0.85;
-    const v = englishVoice(); if (v) u.voice = v;
+    u.lang = lang; u.rate = lang.startsWith("zh") ? 0.75 : 0.85;
+    const v = pickVoice(lang);
+    if (!v && !lang.startsWith("en")) { alert("Máy bạn chưa cài giọng đọc " + (lang.startsWith("zh") ? "tiếng Trung" : lang) + ". Hãy thử trên Chrome hoặc Edge."); return; }
+    if (v) u.voice = v;
     btn.classList.add("playing");
     u.onend = u.onerror = () => btn.classList.remove("playing");
     speechSynthesis.speak(u);
@@ -656,6 +691,47 @@
   document.getElementById("wotd-next").addEventListener("click", () => { wotd.i = (wotd.i + 1) % wotd.list.length; showWord(); });
   document.getElementById("wotd-prev").addEventListener("click", () => { wotd.i = (wotd.i - 1 + wotd.list.length) % wotd.list.length; showWord(); });
   if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
+
+  // ---------- Tab Từ vựng theo chủ đề (data/vocab.json) ----------
+  const voc = { data: null, lang: "en", topic: null };
+  function renderVocab() {
+    const d = voc.data; if (!d) return;
+    const L = d[voc.lang];
+    if (!voc.topic || !L.topics.some(t => t.id === voc.topic)) voc.topic = L.topics[0].id;
+    document.getElementById("v-langs").innerHTML = Object.keys(d).map(k =>
+      '<button type="button" data-lang="' + k + '" class="' + (k === voc.lang ? "on" : "") + '">' + esc(d[k].flag) + " " + esc(d[k].name) + "</button>").join("");
+    document.getElementById("v-topics").innerHTML = L.topics.map(t =>
+      '<button type="button" data-topic="' + esc(t.id) + '" class="' + (t.id === voc.topic ? "on" : "") + '">' + esc(t.e) + " " + esc(t.name) + "</button>").join("");
+    const T = L.topics.find(t => t.id === voc.topic);
+    document.getElementById("v-grid").innerHTML = T.words.map((w, i) =>
+      '<div class="vcard" data-i="' + i + '" tabindex="0" role="button" aria-label="Nghe ' + esc(w.w) + '">' +
+      '<div class="vpic">' + esc(w.e) + "</div>" +
+      '<div class="vw' + (voc.lang === "zh" ? " zh" : "") + '">' + esc(w.w) + "</div>" +
+      '<div class="vp">' + esc(w.p) + "</div>" +
+      '<div class="vvi">' + esc(w.vi) + "</div>" +
+      '<span class="speak small" aria-hidden="true">🔊</span></div>').join("");
+    if (window.postHeight) window.postHeight();
+  }
+  async function loadVocab() {
+    try { voc.data = await getJSON("data/vocab.json"); } catch (e) { return; }
+    renderVocab();
+  }
+  document.getElementById("v-langs").addEventListener("click", e => {
+    const b = e.target.closest("button[data-lang]"); if (!b) return;
+    voc.lang = b.dataset.lang; voc.topic = null; renderVocab();
+  });
+  document.getElementById("v-topics").addEventListener("click", e => {
+    const b = e.target.closest("button[data-topic]"); if (!b) return;
+    voc.topic = b.dataset.topic; renderVocab();
+  });
+  function playCard(card) {
+    const L = voc.data[voc.lang], T = L.topics.find(t => t.id === voc.topic), w = T.words[+card.dataset.i];
+    say(w.w, card.querySelector(".speak"), L.lang);
+  }
+  document.getElementById("v-grid").addEventListener("click", e => { const c = e.target.closest(".vcard"); if (c) playCard(c); });
+  document.getElementById("v-grid").addEventListener("keydown", e => {
+    const c = e.target.closest(".vcard"); if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); playCard(c); }
+  });
   (function hello() {
     const d = new Date(), h = d.getHours();
     const g = h < 11 ? "Chào buổi sáng" : h < 14 ? "Chào buổi trưa" : h < 18 ? "Chào buổi chiều" : "Chào buổi tối";
@@ -705,6 +781,7 @@
   showTab(location.hash.slice(1));
   loadProducts();
   loadWords();
+  loadVocab();
   refresh();
   setInterval(refresh, 60 * 1000);
 })();
