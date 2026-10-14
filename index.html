@@ -502,7 +502,7 @@
     TABS.forEach(t => { document.getElementById("pane-" + t).hidden = t !== name; });
     document.querySelectorAll("#maintabs a").forEach(a => a.classList.toggle("on", a.dataset.tab === name));
     if (name === "gia-vang" && chart) chart.resize();
-    if (window.postHeight) window.postHeight();
+    if (window.postHeight) { window.postHeight(); setTimeout(window.postHeight, 300); }
   }
   document.getElementById("maintabs").addEventListener("click", e => {
     const a = e.target.closest("a[data-tab]"); if (!a) return;
@@ -540,11 +540,16 @@
   }
 
   // Khi được nhúng bằng iframe: báo chiều cao cho trang cha để khung tự co giãn.
+  // Đo đáy thật của nội dung (.wrap), không dùng scrollHeight vì nó không bao giờ nhỏ hơn
+  // chiều cao khung hiện tại, khiến khung chỉ giãn mà không co lại khi đổi sang tab ngắn.
   function postHeight() {
-    if (window.parent !== window) window.parent.postMessage({ gvHeight: document.documentElement.scrollHeight }, "*");
+    if (window.parent === window) return;
+    const wrap = document.querySelector(".wrap");
+    const h = Math.ceil(wrap.getBoundingClientRect().bottom + window.scrollY);
+    window.parent.postMessage({ gvHeight: h }, "*");
   }
   window.postHeight = postHeight;
-  new ResizeObserver(postHeight).observe(document.body);
+  new ResizeObserver(postHeight).observe(document.querySelector(".wrap"));
   window.addEventListener("load", postHeight);
 
   showTab(location.hash.slice(1));
