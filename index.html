@@ -128,6 +128,31 @@
   .product .kind { color: var(--muted); font-size: 12.5px; }
   .product p { margin: 0; color: var(--text); font-size: 14px; flex: 1; }
   .product .btn { align-self: flex-start; }
+
+  /* ---------- Banner thương hiệu ---------- */
+  .brand { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; }
+  .brand .coin { width: 92px; height: 92px; flex: 0 0 auto; filter: drop-shadow(0 6px 10px rgba(184,134,11,.25));
+    animation: bob 4s ease-in-out infinite; }
+  .brand .spark { transform-origin: 21px 23px; animation: twinkle 2.4s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @keyframes twinkle { 0%, 100% { opacity: .2; transform: scale(.6); } 50% { opacity: 1; transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { .brand .coin, .brand .spark { animation: none; } }
+  .brand-name { font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--leaf); }
+  .brand-name span { color: var(--gold); margin: 0 8px; }
+  .brand-tag { margin-top: 2px; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+  .brand-hello { margin-top: 6px; color: var(--muted); font-size: 14px; }
+  .chips { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chips a { padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; color: var(--text);
+    background: rgba(255,255,255,.65); border: 1px solid var(--line); backdrop-filter: blur(2px); }
+  .chips a:hover { border-color: var(--leaf); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chips a { background: rgba(0,0,0,.25); } }
+  @media (max-width: 600px) { .brand .coin { width: 68px; height: 68px; } .brand-name { font-size: 30px; } .brand-tag { font-size: 11px; letter-spacing: 1px; } }
+
+  /* Tiêu đề khu giá vàng (nằm trong tab) */
+  .sechead { margin: 0 0 14px; }
+  .sechead h1 { font-size: 26px; display: flex; align-items: center; gap: 10px; margin: 0; }
+  .sechead .sub { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+  @media (max-width: 480px) { .sechead h1 { font-size: 22px; } }
 </style>
 </head>
 <body>
@@ -160,20 +185,34 @@
         <circle r="5" fill="#f2c14e"/>
       </g>
     </svg>
-    <header>
-      <h1>
-        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M16 30V14" stroke="#4f8a3a" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M16 22c-7 0-10-5-9-9 6 0 9 4 9 9z" fill="#7fb36a"/>
-          <path d="M16 19c6-1 9-5 8-9-6 0-8 4-8 9z" fill="#93bf7c"/>
-          <g fill="#f2c14e"><circle cx="16" cy="6" r="4"/><circle cx="21" cy="9" r="4"/><circle cx="11" cy="9" r="4"/><circle cx="16" cy="12" r="4"/></g>
-          <circle cx="16" cy="9" r="3" fill="#b8860b"/>
-        </svg>
-        Giá vàng <span>hôm nay</span>
-      </h1>
-    </header>
-    <div class="sub">Vàng · Bạc · Tỷ giá — cập nhật tự động mỗi phút</div>
-    <div class="status sub" id="status">Đang tải dữ liệu...</div>
+    <div class="brand">
+      <svg class="coin" viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <linearGradient id="bc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".45" stop-color="#f2c14e"/><stop offset="1" stop-color="#b8860b"/></linearGradient>
+          <linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9a520"/><stop offset="1" stop-color="#8a6410"/></linearGradient>
+        </defs>
+        <g transform="translate(56 64)">
+          <circle r="50" fill="url(#br)"/><circle r="44" fill="url(#bc)"/>
+          <circle r="38" fill="none" stroke="#fff3c4" stroke-width="2" stroke-dasharray="1.5 5" opacity=".9"/>
+          <text x="2" y="21" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="62" fill="#7a5408">3</text>
+          <text x="0" y="19" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="62" fill="#fff8e1">3</text>
+          <path d="M30 -34 C35 -48 43 -55 54 -60" fill="none" stroke="#3d7a2f" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M40 -50 c-13 -3 -18 -14 -14 -22 12 2 18 12 14 22z" fill="#6aa84f"/>
+          <path d="M45 -54 c3 -13 14 -18 22 -14 -2 12 -12 18 -22 14z" fill="#93bf7c"/>
+        </g>
+        <path class="spark" d="M18 20 l3 -9 3 9 9 3 -9 3 -3 9 -3 -9 -9 -3z" fill="#fff3c4"/>
+      </svg>
+      <div class="brand-txt">
+        <div class="brand-name">Học<span>3</span>Giây</div>
+        <div class="brand-tag">Giá vàng · Kiến thức · Mỗi ngày</div>
+        <div class="brand-hello" id="hello">Chào bạn!</div>
+      </div>
+    </div>
+    <div class="chips">
+      <a href="#gia-vang" data-goto="gia-vang">💰 Giá vàng cập nhật mỗi phút</a>
+      <a href="#tien-ich-chrome" data-goto="tien-ich-chrome">🧩 Tiện ích Chrome miễn phí</a>
+      <a href="#game-android" data-goto="game-android">🎮 Game giải trí</a>
+    </div>
   </div>
 
   <nav class="maintabs" id="maintabs" role="tablist">
@@ -183,6 +222,19 @@
   </nav>
 
   <div class="pane" id="pane-gia-vang">
+  <header class="sechead">
+    <h1>
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 30V14" stroke="#4f8a3a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M16 22c-7 0-10-5-9-9 6 0 9 4 9 9z" fill="#7fb36a"/>
+        <path d="M16 19c6-1 9-5 8-9-6 0-8 4-8 9z" fill="#93bf7c"/>
+        <g fill="#f2c14e"><circle cx="16" cy="6" r="4"/><circle cx="21" cy="9" r="4"/><circle cx="11" cy="9" r="4"/><circle cx="16" cy="12" r="4"/></g>
+        <circle cx="16" cy="9" r="3" fill="#b8860b"/>
+      </svg>
+      Giá vàng <span>hôm nay</span>
+    </h1>
+    <div class="sub">Vàng · Bạc · Tỷ giá — cập nhật tự động mỗi phút · <span class="status" id="status">Đang tải dữ liệu...</span></div>
+  </header>
   <div class="grid">
     <div class="card hl">
       <div class="label">Vàng thế giới quy đổi</div>
@@ -512,6 +564,18 @@
     window.scrollTo(0, 0);
   });
   window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
+  document.querySelectorAll(".chips a[data-goto]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault();
+    history.replaceState(null, "", "#" + a.dataset.goto);
+    showTab(a.dataset.goto);
+    document.getElementById("maintabs").scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+  (function hello() {
+    const d = new Date(), h = d.getHours();
+    const g = h < 11 ? "Chào buổi sáng" : h < 14 ? "Chào buổi trưa" : h < 18 ? "Chào buổi chiều" : "Chào buổi tối";
+    const day = d.toLocaleDateString("vi-VN", { weekday: "long", day: "numeric", month: "numeric", year: "numeric" });
+    document.getElementById("hello").textContent = g + "! Hôm nay là " + day + ".";
+  })();
 
   // ---------- sản phẩm (data/products.json) ----------
   const esc = s => String(s || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
