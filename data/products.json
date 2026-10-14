@@ -18,7 +18,7 @@
         },
         {
           "label": "Mua 29.000đ ↗",
-          "url": "https://ytgif-thanh-toan.ytgif-thanh-toan.workers.dev"
+          "url": "https://ytgif-thanh-toan.ytgif-thanh-toan.workers.dev/mua/ytgif"
         }
       ],
       "promo": "Muốn bình luận YouTube bằng ảnh động?"
@@ -38,10 +38,17 @@
       "type": "chrome",
       "name": "Tải Ảnh Hàng Loạt",
       "icon": "assets/tai-anh-hang-loat.png",
-      "desc": "Phát hiện ảnh và sản phẩm trên trang web, tải hàng loạt theo thứ tự, đặt tên theo mẫu, đổi sang JPG/PNG/WEBP.",
+      "desc": "Phát hiện ảnh trên trang web, tải hàng loạt theo thứ tự (miễn phí). Bản trọn đời 49.000đ: tải theo sản phẩm, xuất Excel, trợ lý AI, đổi định dạng, ảnh vuông cho sàn, ảnh dài webtoon.",
       "url": "https://chromewebstore.google.com/detail/cgpfnjdamchgbnolahmfgdijdfiecnkh?hl=vi",
       "button": "Thêm vào Chrome",
-      "promo": "Cần lưu nhiều ảnh từ một trang web cùng lúc?"
+      "promo": "Cần lưu nhiều ảnh từ một trang web cùng lúc?",
+      "badge": "Trọn đời",
+      "extra": [
+        {
+          "label": "Mua 49.000đ ↗",
+          "url": "https://ytgif-thanh-toan.ytgif-thanh-toan.workers.dev/mua/tai-anh"
+        }
+      ]
     },
     {
       "id": "vit-nhay",
