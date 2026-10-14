@@ -188,6 +188,8 @@
   .topics button { padding: 6px 12px; font-size: 13px; }
   .langs button.on { color: #fff; border-color: transparent; background: linear-gradient(90deg, var(--leaf), var(--gold)); }
   .topics button.on { border-color: var(--leaf); background: var(--leaf-soft); color: var(--leaf); }
+  .vsearch { margin: 0 0 12px; border-radius: 999px; padding: 10px 16px; font-size: 15px; }
+  #v-count { margin: -4px 0 12px; }
   .vgrid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .vcard { position: relative; cursor: pointer; text-align: center; padding: 14px 10px 12px; border-radius: 16px;
     background: linear-gradient(170deg, var(--card), var(--gold-soft)); border: 1px solid var(--line);
@@ -430,7 +432,9 @@
     <section class="card">
       <h2>Học từ vựng theo chủ đề</h2>
       <div class="langs" id="v-langs"></div>
+      <input type="search" id="v-search" class="vsearch" placeholder="🔍 Tìm từ (tiếng Việt, tiếng Anh, chữ Hán hoặc pinyin)…" autocomplete="off">
       <div class="topics" id="v-topics"></div>
+      <div class="note" id="v-count"></div>
       <div class="vgrid" id="v-grid"></div>
       <div class="note">Bấm 🔊 hoặc bấm vào thẻ để nghe phát âm. Giọng đọc dùng sẵn trong trình duyệt của bạn.</div>
     </section>
@@ -702,8 +706,22 @@
       '<button type="button" data-lang="' + k + '" class="' + (k === voc.lang ? "on" : "") + '">' + esc(d[k].flag) + " " + esc(d[k].name) + "</button>").join("");
     document.getElementById("v-topics").innerHTML = L.topics.map(t =>
       '<button type="button" data-topic="' + esc(t.id) + '" class="' + (t.id === voc.topic ? "on" : "") + '">' + esc(t.e) + " " + esc(t.name) + "</button>").join("");
-    const T = L.topics.find(t => t.id === voc.topic);
-    document.getElementById("v-grid").innerHTML = T.words.map((w, i) =>
+    const q = voc.q ? norm(voc.q) : "";
+    let words, label;
+    if (q) {
+      words = L.topics.flatMap(t => t.words).filter(w => norm(w.w + " " + w.p + " " + w.vi).includes(q));
+      label = "Tìm thấy " + words.length + " từ cho “" + voc.q + "”" + (words.length > 60 ? " (hiện 60 từ đầu)" : "");
+      words = words.slice(0, 60);
+    } else {
+      const T = L.topics.find(t => t.id === voc.topic);
+      words = T.words;
+      const total = L.topics.reduce((s, t) => s + t.words.length, 0);
+      label = T.e + " " + T.name + ": " + words.length + " từ · Tổng " + total + " từ " + L.name.toLowerCase();
+    }
+    voc.shown = words;
+    document.getElementById("v-topics").style.opacity = q ? ".45" : "1";
+    document.getElementById("v-count").textContent = label;
+    document.getElementById("v-grid").innerHTML = words.map((w, i) =>
       '<div class="vcard" data-i="' + i + '" tabindex="0" role="button" aria-label="Nghe ' + esc(w.w) + '">' +
       '<div class="vpic">' + esc(w.e) + "</div>" +
       '<div class="vw' + (voc.lang === "zh" ? " zh" : "") + '">' + esc(w.w) + "</div>" +
@@ -722,12 +740,19 @@
   });
   document.getElementById("v-topics").addEventListener("click", e => {
     const b = e.target.closest("button[data-topic]"); if (!b) return;
-    voc.topic = b.dataset.topic; renderVocab();
+    voc.topic = b.dataset.topic; voc.q = ""; document.getElementById("v-search").value = ""; renderVocab();
   });
   function playCard(card) {
-    const L = voc.data[voc.lang], T = L.topics.find(t => t.id === voc.topic), w = T.words[+card.dataset.i];
+    const L = voc.data[voc.lang], w = voc.shown[+card.dataset.i];
     say(w.w, card.querySelector(".speak"), L.lang);
   }
+  // Bỏ dấu để tìm "ca phe" vẫn ra "cà phê", "baba" ra "bàba".
+  function norm(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d"); }
+  let vTimer;
+  document.getElementById("v-search").addEventListener("input", e => {
+    clearTimeout(vTimer);
+    vTimer = setTimeout(() => { voc.q = e.target.value.trim(); renderVocab(); }, 150);
+  });
   document.getElementById("v-grid").addEventListener("click", e => { const c = e.target.closest(".vcard"); if (c) playCard(c); });
   document.getElementById("v-grid").addEventListener("keydown", e => {
     const c = e.target.closest(".vcard"); if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); playCard(c); }
