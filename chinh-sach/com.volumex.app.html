@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quyền riêng tư VolumeX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+  /* Layout: một cột văn bản hẹp, đầu trang có huy hiệu CC, hai bản ngôn ngữ nối tiếp nhau */
+  :root {
+    --bg: #fbfaf9;
+    --surface: #f2efed;
+    --fg: #1d1a19;
+    --muted: #6b6461;
+    --line: #e4dfdc;
+    --accent: #3d5afe;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171413; --surface: #221e1d; --fg: #eeeae8; --muted: #a39b97; --line: #332e2c; --accent: #8c9eff;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171413; --surface: #221e1d; --fg: #eeeae8; --muted: #a39b97; --line: #332e2c; --accent: #8c9eff;
+    color-scheme: dark;
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.7; }
+  .wrap { max-width: 680px; margin: 0 auto; padding-inline: 20px; padding-block: 48px 64px; }
+  header { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
+  .badge { flex: none; width: 52px; height: 52px; border-radius: 12px; background: var(--accent); color: #fff;
+           display: grid; place-items: center; font-weight: 700; font-size: 20px; letter-spacing: .02em; }
+  h1 { font-size: 1.75rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 32px; font-family: var(--font-mono); }
+  nav { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+  nav a { color: var(--fg); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: .9rem; }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h2 { font-size: 1.15rem; margin: 32px 0 8px; }
+  p, ul { margin: 0 0 12px; }
+  ul { padding-left: 1.2em; }
+  li { margin-bottom: 6px; }
+  .summary { background: var(--surface); border-radius: 10px; padding: 16px 20px; margin-bottom: 8px; }
+  .summary strong { color: var(--accent); }
+  code { font-family: var(--font-mono); font-size: .88em; background: var(--surface); padding: 1px 6px; border-radius: 4px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0 8px; }
+  .lang { text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; color: var(--muted); margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="badge" aria-hidden="true">VX</div>
+    <h1>Chính sách quyền riêng tư<br>VolumeX – Nút cảm ứng</h1>
+  </header>
+  <p class="meta">Có hiệu lực từ 14/10/2026 · Phiên bản ứng dụng 1.0.0 · com.volumex.app</p>
+  <nav><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+
+  <section id="vi">
+    <div class="lang">Tiếng Việt</div>
+    <div class="summary"><strong>Tóm tắt:</strong> VolumeX không thu thập, không lưu trên máy chủ và không chia sẻ bất kỳ dữ liệu cá nhân nào của bạn. Ứng dụng không kết nối Internet.</div>
+
+    <h2>Dịch vụ Trợ năng (Accessibility Service)</h2>
+    <p>VolumeX dùng API Trợ năng của Android <strong>chỉ</strong> để:</p>
+    <ul>
+      <li>Hiển thị thanh nút cảm ứng nổi (Tăng âm lượng, Giảm âm lượng, Nguồn) trên màn hình.</li>
+      <li>Tắt màn hình (khóa máy) và mở menu nguồn của hệ thống khi bạn bấm nút nguồn ảo hoặc ô Quick Settings của VolumeX.</li>
+    </ul>
+    <p>Dịch vụ được cấu hình để <strong>không đọc nội dung cửa sổ</strong>: VolumeX không xem, ghi lại hay lưu nội dung màn hình, văn bản bạn nhập, mật khẩu, tin nhắn hay ứng dụng bạn đang dùng. Dịch vụ chỉ hoạt động sau khi bạn đồng ý trong ứng dụng và tự bật trong Cài đặt Trợ năng; bạn có thể tắt bất cứ lúc nào.</p>
+
+    <h2>Dữ liệu được lưu trên máy</h2>
+    <ul>
+      <li>Các cài đặt của bạn (bật/tắt nút nổi, kích thước, độ đậm, vị trí nút, loại âm lượng, rung) được lưu trong bộ nhớ riêng của ứng dụng trên điện thoại và bị xoá khi bạn gỡ ứng dụng.</li>
+    </ul>
+
+    <h2>Những gì ứng dụng không làm</h2>
+    <ul>
+      <li>Không thu thập thông tin nhận dạng cá nhân, danh bạ, vị trí, ảnh hay tệp.</li>
+      <li>Không có quyền truy cập Internet, không gửi dữ liệu đến máy chủ nào.</li>
+      <li>Không dùng quảng cáo, công cụ phân tích hay theo dõi.</li>
+      <li>Không bán hoặc chuyển giao dữ liệu người dùng.</li>
+    </ul>
+
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng không hướng tới trẻ em dưới 13 tuổi và không thu thập dữ liệu của bất kỳ ai.</p>
+
+    <h2>Thay đổi chính sách</h2>
+    <p>Nếu chính sách thay đổi, phiên bản mới sẽ được đăng tại trang này cùng ngày hiệu lực mới.</p>
+
+    <h2>Liên hệ</h2>
+    <p>Nếu có câu hỏi, vui lòng liên hệ qua địa chỉ email nhà phát triển trên trang VolumeX tại Google Play.</p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <div class="lang">English</div>
+    <div class="summary"><strong>Summary:</strong> VolumeX does not collect, store on any server, or share any of your personal data. The app does not connect to the Internet.</div>
+
+    <h2>Accessibility Service</h2>
+    <p>VolumeX uses the Android Accessibility API <strong>only</strong> to:</p>
+    <ul>
+      <li>Show a floating bar of touch buttons (Volume up, Volume down, Power) on the screen.</li>
+      <li>Turn the screen off (lock the device) and open the system power menu when you tap the virtual power button or a VolumeX Quick Settings tile.</li>
+    </ul>
+    <p>The service is configured to <strong>not retrieve window content</strong>: VolumeX does not view, record or store screen content, text you type, passwords, messages or which apps you use. It works only after you agree in the app and turn it on yourself in Accessibility settings; you can turn it off at any time.</p>
+
+    <h2>Data stored on the device</h2>
+    <ul>
+      <li>Your settings (floating bar on/off, size, opacity, position, volume stream, vibration) are kept in the app’s private storage on your phone and are deleted when you uninstall the app.</li>
+    </ul>
+
+    <h2>What the app does not do</h2>
+    <ul>
+      <li>It does not collect personally identifiable information, contacts, location, photos or files.</li>
+      <li>It has no Internet permission and sends no data to any server.</li>
+      <li>It uses no advertising, analytics or tracking.</li>
+      <li>It does not sell or transfer user data.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The app is not directed at children under 13 and does not collect data from anyone.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the new version will be posted on this page with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>For questions, please use the developer email shown on the VolumeX Google Play listing.</p>
+  </section>
+</div>
+</body>
+</html>
