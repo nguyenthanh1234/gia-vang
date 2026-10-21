@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ Hụi · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #f6f8fc;
+    --fg: #161e2c;
+    --muted: #5a6578;
+    --line: #dbe2ee;
+    --accent: #8a4b12;
+    --panel: #e8eef8;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10141c; --fg: #e4eaf4; --muted: #a2acbe; --line: #2a3242; --accent: #f0b06a; --panel: #182030;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10141c; --fg: #e4eaf4; --muted: #a2acbe; --line: #2a3242; --accent: #f0b06a; --panel: #182030;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .mark svg rect { fill: var(--bg); }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:var(--bg)" d="M12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8zM11 2h2v3h-2zM11 19h2v3h-2zM2 11h3v2H2zM19 11h3v2h-3z"/></svg></div>
+    <div><div class="app-name">Sổ Hụi</div><div class="app-id">vn.sohui.so_hui</div></div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language"><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 21/10/2026</p>
+    <div class="summary"><p><strong>Ứng dụng không thu thập, không gửi đi và không chia sẻ bất kỳ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, và không xin quyền nhạy cảm nào.</p></div>
+    <h2>Ứng dụng làm gì</h2>
+    <p>Sổ Hụi giúp bạn ghi các dây hụi (họ, phường) đang chơi hoặc đang làm chủ: ai hốt kỳ nào, tiền thăm, mỗi phần góp bao nhiêu, ai đã góp. Mọi phép tính làm ngay trên điện thoại. Ứng dụng không giữ, không chuyển tiền của ai.</p>
+    <h2>Dữ liệu lưu trên máy</h2>
+    <p>Tên dây hụi, tên và số điện thoại thành viên, các kỳ hốt và ghi chú bạn nhập chỉ nằm trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết.</p>
+    <h2>Danh bạ</h2>
+    <p>Ứng dụng không xin quyền đọc danh bạ. Khi bạn bấm nút danh bạ, điện thoại mở bộ chọn của hệ thống và ứng dụng chỉ nhận đúng tên, số điện thoại bạn chọn.</p>
+    <h2>Khi bạn chủ động gửi đi</h2>
+    <p>Chỉ khi bạn bấm, ứng dụng mới mở ứng dụng khác do bạn chọn: gửi kết quả kỳ hụi (Zalo, tin nhắn), gọi điện, soạn tin nhắn nhắc góp hụi, hoặc gửi file sao lưu. Ứng dụng không tự gửi gì.</p>
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng không thu thập dữ liệu của bất kỳ ai, kể cả trẻ em.</p>
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+  <hr>
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 21, 2026</p>
+    <div class="summary"><p><strong>This app does not collect, transmit or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, and requests no sensitive permissions.</p></div>
+    <h2>What the app does</h2>
+    <p>So Hui is a ledger for Vietnamese rotating savings groups (hụi / họ): who received the pot each round, bids, how much each share pays and who has paid. All calculations happen on your phone. The app never holds or transfers money.</p>
+    <h2>Data stored on the device</h2>
+    <p>Group names, member names and phone numbers, rounds and notes are stored only inside the app on your phone and are removed when you uninstall it.</p>
+    <h2>Contacts</h2>
+    <p>The app does not request contacts permission. When you tap the contacts button, the system picker opens and the app receives only the one name and number you choose.</p>
+    <h2>When you choose to send</h2>
+    <p>Only when you tap does the app open another app you pick: sharing a round summary, calling, composing a reminder SMS, or sending a backup file. The app never sends anything by itself.</p>
+    <h2>Children</h2>
+    <p>The app collects no data from anyone, including children.</p>
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>

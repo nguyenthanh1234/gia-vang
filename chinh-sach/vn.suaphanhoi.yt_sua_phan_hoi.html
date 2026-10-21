@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sửa Bình Luận YT · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), mục lục ngôn ngữ ở đầu */
+  :root {
+    --bg: #fbf8f8;
+    --fg: #241b1b;
+    --muted: #6d5f5f;
+    --line: #e8dede;
+    --accent: #c40000;
+    --panel: #f3ecec;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171212; --fg: #efe6e6; --muted: #b3a5a5; --line: #352a2a; --accent: #ff6b5e; --panel: #221a1a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171212; --fg: #efe6e6; --muted: #b3a5a5; --line: #352a2a; --accent: #ff6b5e; --panel: #221a1a;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M12 3C6.5 3 2 6.6 2 11c0 2.3 1.2 4.3 3.1 5.8L4 21l4.6-2.5c1.1.3 2.2.5 3.4.5 5.5 0 10-3.6 10-8S17.5 3 12 3zm-1.4 12.2-3.7-3.7 1.4-1.4 2.3 2.3 5.1-5.1 1.4 1.4-6.5 6.5z"/></svg>
+    </div>
+    <div>
+      <div class="app-name">Sửa Bình Luận YT</div>
+      <div class="app-id">vn.suaphanhoi.yt_sua_phan_hoi</div>
+    </div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language">
+    <a href="#vi">Tiếng Việt</a>
+    <a href="#en">English</a>
+  </nav>
+
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 16/10/2026</p>
+
+    <div class="summary">
+      <p><strong>Ứng dụng không thu thập, không lưu trên máy chủ và không chia sẻ bất kỳ dữ liệu cá nhân nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi.</p>
+    </div>
+
+    <h2>Quyền Trợ năng (AccessibilityService)</h2>
+    <p>Ứng dụng dùng API Dịch vụ Trợ năng của Android chỉ để:</p>
+    <ul>
+      <li>Tự bấm các nút "Buộc dừng" và "Xóa bộ nhớ đệm" trong trang Thông tin ứng dụng của YouTube và các ứng dụng bạn tự chọn. Việc này chỉ xảy ra khi bạn yêu cầu (nút Sửa ngay, nút nổi, lối tắt, thông báo) hoặc khi bạn bật tùy chọn "Tự dọn khi mở YouTube".</li>
+      <li>Nhận biết khi ứng dụng YouTube đang mở để hiện nút nổi, nếu bạn bật tính năng này.</li>
+    </ul>
+    <p>Ứng dụng chỉ đọc nhãn của các nút trong trang cài đặt hệ thống để tìm đúng nút cần bấm. Ứng dụng <strong>không</strong> đọc, ghi lại hay gửi đi nội dung màn hình, tin nhắn, mật khẩu, lịch sử xem hay bất kỳ dữ liệu cá nhân nào. Ứng dụng không bao giờ bấm "Xóa dữ liệu", nên tài khoản của bạn trong các ứng dụng khác không bị ảnh hưởng.</p>
+    <p>Ứng dụng chỉ xin quyền này sau khi hiện màn hình giải thích và bạn bấm "Đồng ý". Bạn có thể tắt quyền bất cứ lúc nào trong Cài đặt → Trợ năng.</p>
+
+    <h2>Dữ liệu lưu trên máy</h2>
+    <p>Các tùy chọn của bạn (bật/tắt tính năng, chu kỳ dọn, danh sách ứng dụng đã chọn, thời điểm và số lần dọn) chỉ được lưu trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết các dữ liệu này.</p>
+
+    <h2>Danh sách ứng dụng trên máy</h2>
+    <p>Khi bạn mở mục "Chọn app", ứng dụng đọc danh sách ứng dụng có biểu tượng trên màn hình chính để bạn chọn. Danh sách chỉ hiển thị trên máy, không được lưu lại (trừ những ứng dụng bạn chọn) và không được gửi đi đâu.</p>
+
+    <h2>Thông báo</h2>
+    <p>Nếu bạn bật "Thông báo nhắc dọn", ứng dụng xin quyền gửi thông báo để nhắc bạn dọn bộ nhớ đệm định kỳ. Thông báo được tạo ngay trên máy.</p>
+
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng không nhắm tới trẻ em dưới 13 tuổi và không thu thập dữ liệu của bất kỳ ai.</p>
+
+    <h2>Không liên kết với YouTube</h2>
+    <p>Đây là ứng dụng độc lập, không liên kết, không được tài trợ hay xác nhận bởi YouTube hoặc Google. YouTube là nhãn hiệu của Google LLC.</p>
+
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 16, 2026</p>
+
+    <div class="summary">
+      <p><strong>This app does not collect, store on any server, or share any personal data.</strong> It has no Internet permission, no ads, and no analytics or tracking.</p>
+    </div>
+
+    <h2>Accessibility Service</h2>
+    <p>The app uses the Android AccessibilityService API only to:</p>
+    <ul>
+      <li>Tap the "Force stop" and "Clear cache" buttons on the App info screen of YouTube and the apps you choose. This happens only when you request it (Fix now button, floating button, shortcut, notification) or when you enable "Clean when opening YouTube".</li>
+      <li>Detect when the YouTube app is open, to show the floating button if you enable it.</li>
+    </ul>
+    <p>The app only reads button labels on system settings screens to find the correct button. It does <strong>not</strong> read, record or transmit screen content, messages, passwords, watch history or any personal data. It never taps "Clear data", so your accounts in other apps are not affected.</p>
+    <p>The permission is requested only after a disclosure screen and your explicit consent. You can turn it off at any time in Settings → Accessibility.</p>
+
+    <h2>Data stored on the device</h2>
+    <p>Your preferences (feature toggles, cleaning interval, selected apps, time and count of cleanings) are stored only inside the app on your phone and are removed when you uninstall it.</p>
+
+    <h2>Installed apps list</h2>
+    <p>When you open "Choose apps", the app reads the list of launcher apps so you can pick some. The list is shown on the device only, is not stored (except the apps you pick) and is never transmitted.</p>
+
+    <h2>Notifications</h2>
+    <p>If you enable cleaning reminders, the app asks for notification permission to remind you periodically. Notifications are generated on the device.</p>
+
+    <h2>Children</h2>
+    <p>The app is not directed at children under 13 and collects no data from anyone.</p>
+
+    <h2>Not affiliated with YouTube</h2>
+    <p>This is an independent app, not affiliated with, sponsored or endorsed by YouTube or Google. YouTube is a trademark of Google LLC.</p>
+
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>

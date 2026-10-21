@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chia Tiền Nhóm · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #fbf7f5;
+    --fg: #2a1c18;
+    --muted: #6e5d58;
+    --line: #ecdcd6;
+    --accent: #6a3fb5;
+    --panel: #f5e8e3;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171110; --fg: #f0e6e2; --muted: #b9a7a1; --line: #3a2c28; --accent: #b79cf0; --panel: #241a17;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171110; --fg: #f0e6e2; --muted: #b9a7a1; --line: #3a2c28; --accent: #b79cf0; --panel: #241a17;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .mark svg rect { fill: var(--bg); }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:var(--bg)" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2v7l6 3.5A7 7 0 0 1 12 19 7 7 0 0 1 5 12a7 7 0 0 1 7-7z"/></svg></div>
+    <div><div class="app-name">Chia Tiền Nhóm</div><div class="app-id">vn.chiatien.chia_tien</div></div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language"><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 19/10/2026</p>
+    <div class="summary"><p><strong>Ứng dụng không thu thập, không gửi về máy chủ và không chia sẻ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, và không xin quyền nhạy cảm nào (kể cả quyền đọc danh bạ).</p></div>
+    <h2>Dữ liệu lưu trên máy</h2>
+    <ul>
+      <li>Các nhóm bạn tạo: tên nhóm, tên thành viên, các khoản chi (số tiền, mô tả, ai trả, chia cho ai), trạng thái đã chuyển tiền.</li>
+      <li>Tài khoản ngân hàng nhận tiền bạn nhập cho mình hoặc cho bạn bè (ngân hàng, số tài khoản, tên chủ tài khoản), và danh sách người hay đi cùng để thêm nhanh.</li>
+    </ul>
+    <p>Dữ liệu chỉ nằm trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết. Hãy chỉ nhập tài khoản của người khác khi họ đồng ý.</p>
+    <h2>Chọn tên từ danh bạ</h2>
+    <p>Khi bạn bấm biểu tượng danh bạ, ứng dụng mở bộ chọn danh bạ của Android và chỉ nhận tên của <strong>đúng một người bạn chọn</strong>, không đọc toàn bộ danh bạ.</p>
+    <h2>Chia sẻ và mã QR</h2>
+    <p>Mã QR chuyển khoản theo chuẩn VietQR được tạo ngay trên máy. Khi bạn bấm Chia sẻ hoặc Gửi, ứng dụng mở bảng chia sẻ của Android để bạn tự chọn nơi gửi. Ứng dụng không kết nối ngân hàng, không giữ hay chuyển tiền và không tự gửi gì đi.</p>
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng không nhắm tới trẻ em và không thu thập dữ liệu của bất kỳ ai.</p>
+    <h2>Không liên kết với ngân hàng</h2>
+    <p>Đây là ứng dụng độc lập, không liên kết, không được tài trợ hay xác nhận bởi NAPAS hay bất kỳ ngân hàng nào.</p>
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+  <hr>
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 19, 2026</p>
+    <div class="summary"><p><strong>This app does not collect, upload or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, and requests no sensitive permissions (not even contacts permission).</p></div>
+    <h2>Data stored on the device</h2>
+    <ul>
+      <li>Groups you create: group name, member names, expenses (amount, description, who paid, split among whom), payment status.</li>
+      <li>Bank accounts you enter for yourself or friends, and a list of frequent companions for quick adding.</li>
+    </ul>
+    <p>Data stays inside the app on your phone and is removed when you uninstall it. Only enter other people's accounts with their consent.</p>
+    <h2>Picking a name from contacts</h2>
+    <p>The contacts icon opens the Android contact picker; the app receives only the name of <strong>the one person you pick</strong>.</p>
+    <h2>Sharing and QR codes</h2>
+    <p>VietQR codes are generated on the device. Share/Send opens the Android share sheet so you choose where to send. The app does not connect to any bank, does not hold or move money, and never sends anything by itself.</p>
+    <h2>Children</h2>
+    <p>The app is not directed at children and collects no data from anyone.</p>
+    <h2>Not affiliated with banks</h2>
+    <p>This is an independent app, not affiliated with NAPAS or any bank.</p>
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>

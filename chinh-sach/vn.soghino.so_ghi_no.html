@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ Ghi Nợ · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #fbf7f5;
+    --fg: #2a1c18;
+    --muted: #6e5d58;
+    --line: #ecdcd6;
+    --accent: #8c3b2e;
+    --panel: #f5e8e3;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171110; --fg: #f0e6e2; --muted: #b9a7a1; --line: #3a2c28; --accent: #e59a86; --panel: #241a17;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171110; --fg: #f0e6e2; --muted: #b9a7a1; --line: #3a2c28; --accent: #e59a86; --panel: #241a17;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .mark svg rect { fill: var(--bg); }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:var(--bg)" d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6zM9 7v2h7V7zm0 4v2h7v-2z"/></svg>
+    </div>
+    <div>
+      <div class="app-name">Sổ Ghi Nợ Bán Hàng</div>
+      <div class="app-id">vn.soghino.so_ghi_no</div>
+    </div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language">
+    <a href="#vi">Tiếng Việt</a>
+    <a href="#en">English</a>
+  </nav>
+
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 18/10/2026</p>
+
+    <div class="summary">
+      <p><strong>Sổ nợ của bạn chỉ nằm trên điện thoại của bạn. Ứng dụng không thu thập, không gửi về máy chủ và không chia sẻ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, và không xin quyền nhạy cảm nào (kể cả quyền đọc danh bạ).</p>
+    </div>
+
+    <h2>Dữ liệu lưu trên máy</h2>
+    <ul>
+      <li>Khách hàng bạn thêm: tên, số điện thoại, ghi chú.</li>
+      <li>Các lần ghi nợ, thu nợ: số tiền, ghi chú hàng hóa, thời gian.</li>
+      <li>Tên cửa hàng và tài khoản ngân hàng nhận tiền bạn nhập (ngân hàng, số tài khoản, tên chủ tài khoản).</li>
+    </ul>
+    <p>Các dữ liệu này chỉ nằm trong bộ nhớ của ứng dụng. Gỡ ứng dụng sẽ xóa hết, vì vậy bạn nên dùng chức năng Sao lưu.</p>
+
+    <h2>Chọn khách từ danh bạ</h2>
+    <p>Khi bạn bấm biểu tượng danh bạ, ứng dụng mở bộ chọn danh bạ của Android. Ứng dụng chỉ nhận tên và số điện thoại của <strong>đúng một người bạn chọn</strong>, không đọc toàn bộ danh bạ và không cần quyền đọc danh bạ.</p>
+
+    <h2>Nhắc nợ, SMS, gọi điện, sao lưu</h2>
+    <p>Khi bạn bấm Nhắc nợ, SMS, Gọi hoặc Sao lưu, ứng dụng mở bảng chia sẻ, ứng dụng nhắn tin hoặc ứng dụng gọi điện của Android với nội dung soạn sẵn; bạn tự chọn gửi cho ai và tự bấm gửi. File sao lưu chứa toàn bộ sổ nợ; hãy chỉ gửi nó vào nơi lưu trữ của chính bạn. Ứng dụng không tự gửi gì đi.</p>
+
+    <h2>Mã QR chuyển khoản</h2>
+    <p>Mã QR theo chuẩn VietQR được tạo ngay trên máy từ tài khoản của bạn và số tiền nợ. Ứng dụng không kết nối ngân hàng, không nhận hay giữ tiền và không biết khách đã chuyển hay chưa.</p>
+
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng dành cho người bán hàng, không nhắm tới trẻ em và không thu thập dữ liệu của bất kỳ ai.</p>
+
+    <h2>Không liên kết với ngân hàng</h2>
+    <p>Đây là ứng dụng độc lập, không liên kết, không được tài trợ hay xác nhận bởi NAPAS hay bất kỳ ngân hàng nào.</p>
+
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 18, 2026</p>
+
+    <div class="summary">
+      <p><strong>Your debt book stays on your phone. The app does not collect, upload or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, and requests no sensitive permissions (not even contacts permission).</p>
+    </div>
+
+    <h2>Data stored on the device</h2>
+    <ul>
+      <li>Customers you add: name, phone number, note.</li>
+      <li>Debt and payment entries: amount, item note, time.</li>
+      <li>Your shop name and the bank account you enter for receiving payments.</li>
+    </ul>
+    <p>This data stays inside the app. Uninstalling the app removes it, so please use the Backup feature.</p>
+
+    <h2>Picking a customer from contacts</h2>
+    <p>When you tap the contacts icon, the app opens the Android contact picker and receives only the name and phone number of <strong>the one person you pick</strong>. It does not read your contact list and does not need contacts permission.</p>
+
+    <h2>Reminders, SMS, calls, backup</h2>
+    <p>Remind, SMS, Call and Backup open the Android share sheet, messaging app or dialer with prepared content; you choose the recipient and send it yourself. A backup file contains your whole debt book; only send it to your own storage. The app never sends anything by itself.</p>
+
+    <h2>Payment QR codes</h2>
+    <p>VietQR codes are generated on the device from your account and the debt amount. The app does not connect to any bank, does not receive or hold money, and cannot tell whether a customer has paid.</p>
+
+    <h2>Children</h2>
+    <p>The app is made for sellers, is not directed at children, and collects no data from anyone.</p>
+
+    <h2>Not affiliated with banks</h2>
+    <p>This is an independent app, not affiliated with, sponsored or endorsed by NAPAS or any bank.</p>
+
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>

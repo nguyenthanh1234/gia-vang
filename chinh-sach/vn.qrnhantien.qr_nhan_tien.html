@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Nhận Tiền · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #f7faf8;
+    --fg: #18241e;
+    --muted: #5b6b62;
+    --line: #dbe6df;
+    --accent: #0a7c52;
+    --panel: #e9f3ed;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111815; --fg: #e4eee8; --muted: #9fb2a7; --line: #2a3832; --accent: #4cc895; --panel: #19241f;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111815; --fg: #e4eee8; --muted: #9fb2a7; --line: #2a3832; --accent: #4cc895; --panel: #19241f;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .mark svg rect { fill: var(--bg); }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/>
+      </svg>
+    </div>
+    <div>
+      <div class="app-name">QR Nhận Tiền</div>
+      <div class="app-id">vn.qrnhantien.qr_nhan_tien</div>
+    </div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language">
+    <a href="#vi">Tiếng Việt</a>
+    <a href="#en">English</a>
+  </nav>
+
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 18/10/2026</p>
+
+    <div class="summary">
+      <p><strong>Ứng dụng không thu thập, không gửi đi và không chia sẻ bất kỳ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, và không xin quyền nhạy cảm nào.</p>
+    </div>
+
+    <h2>Ứng dụng làm gì</h2>
+    <p>QR Nhận Tiền tạo mã QR chuyển khoản theo chuẩn VietQR ngay trên điện thoại, từ số tài khoản, số tiền và nội dung bạn nhập. Khách quét mã bằng ứng dụng ngân hàng của họ và tự xác nhận chuyển khoản. Ứng dụng không kết nối với ngân hàng, không nhận, giữ hay chuyển tiền, và không biết khách đã chuyển tiền hay chưa.</p>
+
+    <h2>Dữ liệu lưu trên máy</h2>
+    <ul>
+      <li>Tài khoản nhận tiền bạn thêm: ngân hàng, số tài khoản, tên chủ tài khoản, nội dung mặc định.</li>
+      <li>Lịch sử các mã đã tạo: thời gian, số tiền, nội dung, tài khoản.</li>
+    </ul>
+    <p>Các dữ liệu này chỉ nằm trong bộ nhớ của ứng dụng trên điện thoại của bạn. Bạn có thể xóa từng mục hoặc xóa toàn bộ lịch sử trong ứng dụng. Gỡ ứng dụng sẽ xóa hết.</p>
+
+    <h2>Chia sẻ, lưu ảnh và in</h2>
+    <p>Khi bạn bấm Chia sẻ, ứng dụng tạo ảnh mã QR và mở bảng chia sẻ của Android để bạn tự chọn nơi gửi (Zalo, Messenger…). Khi bạn bấm Lưu ảnh, ảnh được lưu vào thư mục Ảnh trên máy. Khi bạn bấm In, ứng dụng mở hộp thoại in của Android. Ứng dụng chỉ làm những việc này khi bạn bấm, và không tự gửi gì đi.</p>
+
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng dành cho người bán hàng, không nhắm tới trẻ em và không thu thập dữ liệu của bất kỳ ai.</p>
+
+    <h2>Không liên kết với ngân hàng</h2>
+    <p>Đây là ứng dụng độc lập, không liên kết, không được tài trợ hay xác nhận bởi NAPAS hay bất kỳ ngân hàng nào. VietQR là nhãn hiệu của chủ sở hữu tương ứng. Tên ngân hàng chỉ dùng để bạn chọn đúng ngân hàng nhận tiền.</p>
+
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 18, 2026</p>
+
+    <div class="summary">
+      <p><strong>This app does not collect, transmit or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, and requests no sensitive permissions.</p>
+    </div>
+
+    <h2>What the app does</h2>
+    <p>QR Nhan Tien creates VietQR bank-transfer QR codes on your phone from the account number, amount and note you enter. Customers scan the code with their own banking app and confirm the transfer themselves. The app does not connect to any bank, does not receive, hold or move money, and cannot tell whether a payment was made.</p>
+
+    <h2>Data stored on the device</h2>
+    <ul>
+      <li>Receiving accounts you add: bank, account number, account holder name, default note.</li>
+      <li>History of codes you created: time, amount, note, account.</li>
+    </ul>
+    <p>This data stays only inside the app on your phone. You can delete single entries or the whole history in the app. Uninstalling the app removes everything.</p>
+
+    <h2>Share, save and print</h2>
+    <p>When you tap Share, the app creates a QR image and opens the Android share sheet so you choose where to send it. Save stores the image in your Pictures folder. Print opens the Android print dialog. These happen only when you tap them; the app never sends anything by itself.</p>
+
+    <h2>Children</h2>
+    <p>The app is made for sellers, is not directed at children, and collects no data from anyone.</p>
+
+    <h2>Not affiliated with banks</h2>
+    <p>This is an independent app, not affiliated with, sponsored or endorsed by NAPAS or any bank. VietQR is a trademark of its respective owner. Bank names are shown only so you can pick the receiving bank.</p>
+
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>
