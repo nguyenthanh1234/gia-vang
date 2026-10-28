@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ Chăn Nuôi · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #fbf7f3;
+    --fg: #23180f;
+    --muted: #6b5d50;
+    --line: #eadfd3;
+    --accent: #a85a24;
+    --panel: #f4e9dd;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17120e; --fg: #f1e8df; --muted: #b5a698; --line: #3a2e24; --accent: #f0ad78; --panel: #241b14;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17120e; --fg: #f1e8df; --muted: #b5a698; --line: #3a2e24; --accent: #f0ad78; --panel: #241b14;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:var(--bg)" d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6zM9 8h8v1.6H9zM9 12h8v1.6H9zM9 16h5v1.6H9z"/></svg></div>
+    <div><div class="app-name">Sổ Chăn Nuôi</div><div class="app-id">vn.sochannuoi.so_chan_nuoi</div></div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language"><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 28/10/2026</p>
+    <div class="summary"><p><strong>Ứng dụng không thu thập, không gửi đi và không chia sẻ bất kỳ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, và không xin quyền nhạy cảm nào.</p></div>
+    <h2>Ứng dụng làm gì</h2>
+    <p>Sổ Chăn Nuôi giúp người nuôi heo, gà, vịt, bò, dê, cá ghi chi phí từng lứa (con giống, thức ăn, thuốc, vắc-xin, điện nước, nhân công), ghi khoản bán, số con chết hoặc nhập thêm, rồi tự tính lãi lỗ, giá thành mỗi ký và hẹn lịch tiêm phòng. Mọi phép tính làm ngay trên điện thoại, không cần mạng.</p>
+    <h2>Thông báo</h2>
+    <p>Ứng dụng xin quyền gửi thông báo chỉ để nhắc lịch tiêm phòng, tẩy giun và các việc bạn đã hẹn cho đàn vật nuôi. Bạn có thể tắt trong phần Cài đặt của ứng dụng hoặc của điện thoại bất cứ lúc nào.</p>
+    <h2>Dữ liệu lưu trên máy</h2>
+    <p>Các lứa nuôi, khoản chi thu, nhật ký đàn và lịch hẹn bạn nhập chỉ nằm trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết.</p>
+    <h2>Khi bạn chủ động gửi đi</h2>
+    <p>Chỉ khi bạn bấm, ứng dụng mới chuyển dữ liệu cho ứng dụng khác do bạn chọn: báo cáo một lứa (Zalo, tin nhắn), bảng tính CSV hoặc file sao lưu. Ứng dụng không tự gửi gì.</p>
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng không thu thập dữ liệu của bất kỳ ai, kể cả trẻ em.</p>
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+  <hr>
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 28, 2026</p>
+    <div class="summary"><p><strong>This app does not collect, transmit or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, and requests no sensitive permissions.</p></div>
+    <h2>What the app does</h2>
+    <p>So Chan Nuoi (Livestock Book) helps people raising pigs, chickens, ducks, cattle, goats or fish record the costs of each batch (stock, feed, medicine, vaccines, utilities, labour), sales, deaths and additions, then calculates profit, cost per kilogram and keeps a vaccination schedule. Everything is computed on your phone with no network.</p>
+    <h2>Notifications</h2>
+    <p>The app asks for notification permission only to remind you of vaccinations, deworming and other tasks you scheduled for your animals. You can turn it off at any time in the app settings or your phone settings.</p>
+    <h2>Data stored on the device</h2>
+    <p>Batches, expenses, sales, herd notes and schedules you enter are stored only inside the app on your phone and are removed when you uninstall it.</p>
+    <h2>When you choose to send</h2>
+    <p>Only when you tap does the app hand data to another app you pick: a batch report, a CSV spreadsheet or a backup file. The app never sends anything by itself.</p>
+    <h2>Children</h2>
+    <p>The app collects no data from anyone, including children.</p>
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>
