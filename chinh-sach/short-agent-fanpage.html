@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Short Agent Fanpage · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #f7faf8;
+    --fg: #18241e;
+    --muted: #5b6b62;
+    --line: #dbe6df;
+    --accent: #0a7c52;
+    --panel: #e9f3ed;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111815; --fg: #e4eee8; --muted: #9fb2a7; --line: #2a3832; --accent: #4cc895; --panel: #19241f;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111815; --fg: #e4eee8; --muted: #9fb2a7; --line: #2a3832; --accent: #4cc895; --panel: #19241f;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .mark svg rect { fill: var(--bg); }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="3"/>
+      </svg>
+    </div>
+    <div>
+      <div class="app-name">Short Agent Fanpage</div>
+      <div class="app-id">Công cụ đăng video lên Fanpage Landing Page 1 Trang</div>
+    </div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language">
+    <a href="#vi">Tiếng Việt</a>
+    <a href="#en">English</a>
+  </nav>
+
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 29/10/2026</p>
+
+    <div class="summary">
+      <p><strong>Short Agent Fanpage chạy trên máy tính của chủ Trang và chỉ dùng quyền Facebook để đăng video lên Trang của chính chủ Trang.</strong> Không có máy chủ riêng, không quảng cáo, không công cụ phân tích hay theo dõi, không bán hay chia sẻ dữ liệu.</p>
+    </div>
+
+    <h2>Ứng dụng làm gì</h2>
+    <p>Short Agent là công cụ cá nhân chạy trên máy tính (địa chỉ 127.0.0.1). Công cụ làm video ngắn giới thiệu dịch vụ thiết kế landing page, rồi đăng video đó dưới dạng Reels lên Trang Facebook của chủ Trang khi họ bấm đăng hoặc bật chế độ tự động đăng.</p>
+
+    <h2>Dữ liệu Facebook mà ứng dụng dùng</h2>
+    <ul>
+      <li>Quyền <b>pages_show_list</b>: liệt kê các Trang chủ Trang đang quản lý để chọn đúng Trang cần đăng.</li>
+      <li>Quyền <b>pages_read_engagement</b>: đọc tên và mã của Trang đã chọn.</li>
+      <li>Quyền <b>pages_manage_posts</b>: đăng video Reels (kèm nội dung bài và giờ hẹn đăng) lên Trang đó.</li>
+    </ul>
+    <p>Ứng dụng không đọc tin nhắn, bình luận, danh sách người theo dõi hay dữ liệu cá nhân của người dùng Facebook nào. Mã truy cập của Trang chỉ được lưu trong một tệp trên máy tính của chủ Trang, không gửi tới bất kỳ máy chủ nào khác ngoài máy chủ của Meta. Chủ Trang có thể ngắt kết nối trong ứng dụng hoặc gỡ quyền bất cứ lúc nào tại <a href="https://www.facebook.com/settings?tab=business_tools">Cài đặt Facebook → Tiện ích tích hợp cho doanh nghiệp</a>.</p>
+
+    <h2>Xoá dữ liệu</h2>
+    <p>Ứng dụng không lưu dữ liệu người dùng Facebook trên máy chủ nào. Để xoá mã truy cập, chủ Trang bấm "ngắt kết nối" trong ứng dụng (tệp mã sẽ bị xoá) hoặc gỡ ứng dụng trong cài đặt Facebook như trên. Có thể gửi yêu cầu qua email bên dưới.</p>
+
+    <h2>Dữ liệu khác</h2>
+    <p>Ảnh, video và kịch bản nằm trong thư mục của ứng dụng trên máy tính. Khi viết kịch bản, chủ đề được gửi tới dịch vụ AI (Claude của Anthropic); lời đọc được gửi tới dịch vụ chuyển văn bản thành giọng nói của Microsoft. Không có dữ liệu Facebook nào được gửi tới các dịch vụ này.</p>
+
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated October 29, 2026</p>
+
+    <div class="summary">
+      <p><strong>Short Agent Fanpage runs on the Page owner's own computer and uses Facebook access only to publish videos to the owner's own Page.</strong> There is no backend server, no ads, no analytics or tracking, and no data is sold or shared.</p>
+    </div>
+
+    <h2>What the app does</h2>
+    <p>Short Agent is a personal tool that runs locally (127.0.0.1). It makes short videos promoting a landing-page design service and publishes them as Reels to the owner's Facebook Page when the owner presses publish or enables automatic posting.</p>
+
+    <h2>Facebook data used</h2>
+    <ul>
+      <li><b>pages_show_list</b>: list the Pages the owner manages so the right Page can be selected.</li>
+      <li><b>pages_read_engagement</b>: read the selected Page's name and ID.</li>
+      <li><b>pages_manage_posts</b>: publish Reels videos (with caption and scheduled time) to that Page.</li>
+    </ul>
+    <p>The app does not read messages, comments, follower lists or any Facebook user's personal data. The Page access token is stored only in a file on the owner's computer and is never sent anywhere except Meta's own servers. The owner can disconnect in the app or remove the app at any time in <a href="https://www.facebook.com/settings?tab=business_tools">Facebook Settings → Business Integrations</a>.</p>
+
+    <h2>Data deletion</h2>
+    <p>The app stores no Facebook user data on any server. To delete the access token, the owner presses "disconnect" in the app (the token file is deleted) or removes the app in Facebook settings as above. Requests can also be sent to the email below.</p>
+
+    <h2>Other data</h2>
+    <p>Images, videos and scripts stay in the app's folder on the computer. When writing a script, the topic is sent to the AI service (Anthropic's Claude); narration text is sent to Microsoft's text-to-speech service. No Facebook data is sent to these services.</p>
+
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>
