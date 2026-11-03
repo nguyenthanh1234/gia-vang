@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ Giao Gas · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #fdf8f5;
+    --fg: #2a1a12;
+    --muted: #6e5a4f;
+    --line: #f0dfd4;
+    --accent: #c4420d;
+    --panel: #fbe9de;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17110e; --fg: #f4e9e2; --muted: #bba79b; --line: #3a2b23; --accent: #ff9a6b; --panel: #261a14;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17110e; --fg: #f4e9e2; --muted: #bba79b; --line: #3a2b23; --accent: #ff9a6b; --panel: #261a14;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:var(--bg)" d="M9 2h6v3h1a3 3 0 0 1 3 3v11a2 2 0 0 1-2 2h-1v1H8v-1H7a2 2 0 0 1-2-2V8a3 3 0 0 1 3-3h1zm2 1.5V5h2V3.5zM12 9c-1.6 2-2.6 3.4-2.6 4.7a2.6 2.6 0 0 0 5.2 0C14.6 12.4 13.6 11 12 9z"/></svg></div>
+    <div><div class="app-name">Sổ Giao Gas &amp; Nước Bình</div><div class="app-id">vn.sogiaogas.so_giao_gas</div></div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language"><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 04/11/2026</p>
+    <div class="summary"><p><strong>Ứng dụng không thu thập, không gửi đi và không chia sẻ bất kỳ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, không đọc danh bạ, không dùng vị trí (GPS) và không xin quyền nhạy cảm nào.</p></div>
+    <h2>Ứng dụng làm gì</h2>
+    <p>Sổ Giao Gas giúp đại lý, cửa hàng gas và nước bình tự ghi danh sách khách (tên, số điện thoại, địa chỉ giao), các lần giao hàng, tiền khách trả, công nợ, số vỏ bình khách đang giữ và tiền cọc vỏ; rồi tự tính doanh thu, lãi theo mặt hàng và đoán khách nào sắp hết gas, hết nước để gọi mời. Mọi phép tính làm ngay trên điện thoại, không cần mạng.</p>
+    <h2>Thông tin khách hàng bạn nhập</h2>
+    <p>Tên, số điện thoại, địa chỉ của khách do chính bạn gõ vào và chỉ lưu trong bộ nhớ của ứng dụng trên điện thoại của bạn. Ứng dụng không đọc danh bạ và không gửi thông tin này đi đâu.</p>
+    <h2>Nút Gọi</h2>
+    <p>Nút Gọi chỉ mở ứng dụng Điện thoại với số đã điền sẵn; bạn tự bấm gọi. Ứng dụng không có quyền gọi điện và không đọc nhật ký cuộc gọi.</p>
+    <h2>Dữ liệu lưu trên máy</h2>
+    <p>Những gì bạn nhập chỉ nằm trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết.</p>
+    <h2>Khi bạn chủ động gửi đi</h2>
+    <p>Chỉ khi bạn bấm, ứng dụng mới chuyển dữ liệu cho ứng dụng khác do bạn chọn: phiếu giao hàng hoặc tin nhắc nợ gửi khách (Zalo, tin nhắn), bảng tính CSV hoặc file sao lưu. Ứng dụng không tự gửi gì.</p>
+    <h2>Không liên kết với hãng gas nào</h2>
+    <p>Ứng dụng là sổ ghi chép độc lập, không thuộc và không liên kết với bất kỳ hãng gas, công ty nước uống hay nhà phân phối nào. Giá có sẵn trong ứng dụng chỉ là giá mẫu để bạn sửa.</p>
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng dành cho người bán hàng, không nhắm tới trẻ em và không thu thập dữ liệu của bất kỳ ai, kể cả trẻ em.</p>
+    <h2>Liên hệ</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+  <hr>
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated November 4, 2026</p>
+    <div class="summary"><p><strong>This app does not collect, transmit or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, does not read your contacts, does not use location (GPS), and requests no sensitive permissions.</p></div>
+    <h2>What the app does</h2>
+    <p>So Giao Gas (Gas &amp; Water Delivery Ledger) helps gas and bottled-water shops record their customers (name, phone number, delivery address), deliveries, payments, debts, empty cylinders or bottles each customer is holding and cylinder deposits, then calculates revenue and profit per product and predicts which customers will soon run out so the shop can call them. Everything is computed on your phone with no network.</p>
+    <h2>Customer details you enter</h2>
+    <p>Customer names, phone numbers and addresses are typed in by you and stored only inside the app on your phone. The app does not read your contacts and never sends this information anywhere.</p>
+    <h2>Call button</h2>
+    <p>The Call button only opens the Phone app with the number filled in; you place the call yourself. The app has no permission to make calls and does not read call logs.</p>
+    <h2>Data stored on the device</h2>
+    <p>What you enter is stored only inside the app on your phone and is removed when you uninstall it.</p>
+    <h2>When you choose to send</h2>
+    <p>Only when you tap does the app hand data to another app you pick: a delivery slip or debt reminder for a customer, a CSV spreadsheet or a backup file. The app never sends anything by itself.</p>
+    <h2>Not affiliated with any gas company</h2>
+    <p>The app is an independent notebook and is not affiliated with any gas brand, drinking-water company or distributor. Built-in prices are only examples for you to edit.</p>
+    <h2>Children</h2>
+    <p>The app is made for shop owners, is not directed at children, and collects no data from anyone, including children.</p>
+    <h2>Contact</h2>
+    <p>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>
