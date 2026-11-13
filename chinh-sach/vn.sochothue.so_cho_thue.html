@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ Cho Thuê Đồ · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #fcf6f9;
+    --fg: #2a1020;
+    --muted: #725a68;
+    --line: #f0d9e5;
+    --accent: #ad1457;
+    --panel: #fae4ef;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a0f15; --fg: #f8e6ef; --muted: #c4a3b4; --line: #3f2433; --accent: #ff7ab2; --panel: #2a1621;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a0f15; --fg: #f8e6ef; --muted: #c4a3b4; --line: #3f2433; --accent: #ff7ab2; --panel: #2a1621;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path style="fill:var(--bg)" d="M12 3a2.5 2.5 0 0 1 1 4.8V9l8.4 4.2a1.3 1.3 0 0 1-.6 2.5H3.2a1.3 1.3 0 0 1-.6-2.5L11 9V7.2a1 1 0 0 1 .6-.9A1 1 0 1 0 11 5.5H9.5A2.5 2.5 0 0 1 12 3zm0 7.6L5.6 13.7h12.8zM8 17h8l2 4H6z"/></svg></div>
+    <div><div class="app-name">Sổ Cho Thuê Đồ: Lịch &amp; Cọc</div><div class="app-id">vn.sochothue.so_cho_thue</div></div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language"><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 13/11/2026</p>
+    <p>Chính sách này áp dụng cho ứng dụng <strong>Sổ Cho Thuê Đồ: Lịch &amp; Cọc</strong> (mã gói vn.sochothue.so_cho_thue) trên Google Play của nhà phát triển <strong>Quê của tôi</strong>.</p>
+    <div class="summary"><p><strong>Ứng dụng không thu thập, không gửi đi và không chia sẻ bất kỳ dữ liệu nào.</strong> Ứng dụng không có quyền truy cập Internet, không có quảng cáo, không dùng công cụ phân tích hay theo dõi, không đọc danh bạ, không dùng vị trí (GPS) và không xin quyền nhạy cảm nào.</p></div>
+    <h2>Ứng dụng làm gì</h2>
+    <p>Sổ Cho Thuê Đồ giúp tiệm cho thuê váy cưới, áo dài, vest, đồ hóa trang, loa, máy ảnh, đồ cắm trại tự ghi kho đồ và các đơn thuê: khách thuê món gì, ngày lấy, ngày trả, tiền thuê, tiền cọc, tiền thế chân, giấy tờ giữ lại; báo trùng lịch, quá hạn trả, tính phí trễ hạn, tiền còn phải thu và doanh thu. Mọi phép tính làm ngay trên điện thoại, không cần mạng.</p>
+    <h2>Thông tin khách hàng bạn nhập</h2>
+    <p>Tên, số điện thoại, địa chỉ của khách và loại giấy tờ tiệm giữ lại (ví dụ ghi chữ "CCCD") đều do chính bạn gõ vào và chỉ lưu trong bộ nhớ của ứng dụng trên điện thoại của bạn. Ứng dụng không chụp ảnh giấy tờ, không đọc danh bạ và không gửi thông tin này đi đâu.</p>
+    <h2>Nút Gọi</h2>
+    <p>Nút Gọi chỉ mở ứng dụng Điện thoại với số đã điền sẵn; bạn tự bấm gọi. Ứng dụng không có quyền gọi điện và không đọc nhật ký cuộc gọi.</p>
+    <h2>Dữ liệu lưu trên máy</h2>
+    <p>Những gì bạn nhập chỉ nằm trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết.</p>
+    <h2>Khi bạn chủ động gửi đi</h2>
+    <p>Chỉ khi bạn bấm, ứng dụng mới chuyển dữ liệu cho ứng dụng khác do bạn chọn: ảnh phiếu thuê, phiếu trả đồ hoặc tin nhắc lịch gửi khách (Zalo, tin nhắn), bảng tính CSV hoặc file sao lưu. Ứng dụng không tự gửi gì.</p>
+    <h2>Không liên kết với thương hiệu nào</h2>
+    <p>Ứng dụng là sổ ghi chép độc lập, không thuộc và không liên kết với bất kỳ thương hiệu thời trang, âm thanh, máy ảnh hay sàn cho thuê nào. Tên đồ trong ứng dụng do người dùng tự nhập.</p>
+    <h2>Trẻ em</h2>
+    <p>Ứng dụng dành cho chủ tiệm cho thuê đồ, không nhắm tới trẻ em và không thu thập dữ liệu của bất kỳ ai, kể cả trẻ em.</p>
+    <h2>Liên hệ</h2>
+    <p>Nhà phát triển: Quê của tôi<br>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+  <hr>
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated November 13, 2026</p>
+    <p>This policy applies to the app <strong>Sổ Cho Thuê Đồ: Lịch &amp; Cọc</strong> (package vn.sochothue.so_cho_thue) on Google Play, published by the developer <strong>Quê của tôi</strong>.</p>
+    <div class="summary"><p><strong>This app does not collect, transmit or share any data.</strong> It has no Internet permission, no ads, no analytics or tracking, does not read your contacts, does not use location (GPS), and requests no sensitive permissions.</p></div>
+    <h2>What the app does</h2>
+    <p>So Cho Thue Do (Rental Shop Book) helps shops that rent out wedding dresses, ao dai, suits, costumes, speakers, cameras or camping gear keep track of their items and rental orders: what each customer rents, pickup and return dates, rental fee, booking deposit, security deposit and ID documents held; it warns about double bookings and overdue returns and calculates late fees, the amount still due and revenue. Everything is computed on your phone with no network.</p>
+    <h2>Customer details you enter</h2>
+    <p>Customer names, phone numbers, addresses and the type of document the shop holds (for example the text "ID card") are typed in by you and stored only inside the app on your phone. The app does not photograph documents, does not read your contacts and never sends this information anywhere.</p>
+    <h2>Call button</h2>
+    <p>The Call button only opens the Phone app with the number filled in; you place the call yourself. The app has no permission to make calls and does not read call logs.</p>
+    <h2>Data stored on the device</h2>
+    <p>What you enter is stored only inside the app on your phone and is removed when you uninstall it.</p>
+    <h2>When you choose to send</h2>
+    <p>Only when you tap does the app hand data to another app you pick: a rental or return slip image or a reminder message for a customer, a CSV spreadsheet or a backup file. The app never sends anything by itself.</p>
+    <h2>Not affiliated with any brand</h2>
+    <p>The app is an independent notebook and is not affiliated with any fashion, audio or camera brand or rental marketplace. Item names are entered by the user.</p>
+    <h2>Children</h2>
+    <p>The app is made for rental shop owners, is not directed at children, and collects no data from anyone, including children.</p>
+    <h2>Contact</h2>
+    <p>Developer: Quê của tôi<br>Email: <span class="email">nguyenthanh2002e12@gmail.com</span></p>
+  </section>
+</main>
+</body>
+</html>
