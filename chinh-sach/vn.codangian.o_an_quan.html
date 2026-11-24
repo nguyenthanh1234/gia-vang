@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ô Ăn Quan - Cờ Dân Gian · Quyền riêng tư</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+<style>
+  /* Layout: một cột văn bản ~65 ký tự, hai phần (Tiếng Việt / English), chọn ngôn ngữ ở đầu */
+  :root {
+    --bg: #fcf6f9;
+    --fg: #2a1020;
+    --muted: #725a68;
+    --line: #f0d9e5;
+    --accent: #ad1457;
+    --panel: #fae4ef;
+    --font-body: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a0f15; --fg: #f8e6ef; --muted: #c4a3b4; --line: #3f2433; --accent: #ff7ab2; --panel: #2a1621;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a0f15; --fg: #f8e6ef; --muted: #c4a3b4; --line: #3f2433; --accent: #ff7ab2; --panel: #2a1621;
+    color-scheme: dark;
+  }
+  body { margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 64px;
+  }
+  main { max-width: 42rem; margin: 0 auto; display: grid; gap: 8px; }
+  .app { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: grid; place-items: center; flex: none; }
+  .app-name { font-weight: 700; font-size: 1rem; }
+  .app-id { color: var(--muted); font-size: .8rem; word-break: break-all; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  nav a {
+    color: var(--fg); text-decoration: none; font-size: .85rem; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+  }
+  nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 32px 0 0; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 4px 0 8px; }
+  h2 { font-size: 1.1rem; margin: 24px 0 0; text-wrap: balance; }
+  p, ul { margin: 6px 0 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 6px; }
+  .summary { background: var(--panel); border-radius: 12px; padding: 16px 18px; margin-top: 12px; }
+  .summary p { margin: 0; }
+  .email { font-weight: 600; user-select: all; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0 0; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app">
+    <div class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" style="fill:var(--bg)"/><circle cx="4" cy="6" r="2" style="fill:var(--bg)"/><circle cx="20" cy="6" r="2" style="fill:var(--bg)"/><circle cx="4" cy="18" r="2" style="fill:var(--bg)"/><circle cx="20" cy="18" r="2" style="fill:var(--bg)"/></svg></div>
+    <div><div class="app-name">Ô Ăn Quan - Cờ Dân Gian</div><div class="app-id">vn.codangian.o_an_quan</div></div>
+  </div>
+  <nav aria-label="Ngôn ngữ / Language"><a href="#vi">Tiếng Việt</a><a href="#en">English</a></nav>
+  <section id="vi">
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="updated">Cập nhật ngày 24/11/2026</p>
+    <p>Chính sách này áp dụng cho ứng dụng <strong>Ô Ăn Quan - Cờ Dân Gian</strong> (mã gói vn.codangian.o_an_quan) trên Google Play của nhà phát triển <strong>Quê của tôi</strong>.</p>
+    <div class="summary"><p><strong>Ứng dụng không cần tài khoản, không có quảng cáo, không dùng công cụ phân tích hay theo dõi và không xin quyền nhạy cảm nào.</strong> Chơi với máy và chơi 2 người một máy không cần mạng.</p></div>
+    <h2>Chơi online</h2>
+    <p>Chỉ khi bạn chọn Chơi online, ứng dụng mới kết nối tới máy chủ của trò chơi và gửi: loại cờ, luật của phòng, biệt danh và câu nói nhanh chọn trong danh sách có sẵn, các nước đi của ván đó. Không có ô tự nhập tên hay chữ. Ván cờ chỉ lưu tạm để hai người chơi với nhau và được xóa tự động sau khi phòng ngừng hoạt động. Máy chủ của trò chơi không lưu địa chỉ IP; nhà cung cấp dịch vụ lưu trữ có thể ghi nhật ký kết nối kỹ thuật để vận hành và chống tấn công. Mọi kết nối dùng HTTPS.</p>
+    <h2>Dữ liệu lưu trên máy</h2>
+    <p>Cài đặt, biệt danh đã chọn và số ván thắng thua chỉ lưu trong bộ nhớ của ứng dụng trên điện thoại. Gỡ ứng dụng sẽ xóa hết. Nếu bạn bật sao lưu của Android, hệ thống có thể sao lưu phần này vào tài khoản Google của bạn.</p>
+    <h2>Chia sẻ</h2>
+    <p>Nút Gửi mời chỉ mở bảng chia sẻ của điện thoại với lời mời kèm số phòng; bạn tự chọn nơi gửi. Ứng dụng không bán và không chuyển dữ liệu cho bên thứ ba để quảng cáo.</p>
+    <h2>Trẻ em</h2>
+    <p>Trò chơi hướng tới người từ 13 tuổi. Ứng dụng không thu thập thông tin cá nhân của bất kỳ ai, kể cả trẻ em. Chơi online chỉ nói được các câu có sẵn.</p>
+    <h2>Liên hệ</h2>
+    <p>Nhà phát triển: Quê của tôi<br>Email: xem địa chỉ email nhà phát triển trên trang Ô Ăn Quan - Cờ Dân Gian tại Google Play.</p>
+  </section>
+  <section id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Updated 24 November 2026</p>
+    <p>This policy applies to the app <strong>Ô Ăn Quan - Cờ Dân Gian</strong> (package vn.codangian.o_an_quan) on Google Play, published by the developer <strong>Quê của tôi</strong>.</p>
+    <div class="summary"><p><strong>The app needs no account, shows no ads, uses no analytics or tracking and requests no sensitive permissions.</strong> Playing against the computer and two players on one phone work offline.</p></div>
+    <h2>Online play</h2>
+    <p>Only when you choose online play does the app connect to the game server and send: the game type, the room rules, the nickname and quick phrases picked from a fixed list, and the moves of that match. There is no free text. A match is stored temporarily so two people can play and is deleted automatically after the room becomes inactive. The game server does not store IP addresses; the hosting provider may keep technical connection logs for operation and security. All connections use HTTPS.</p>
+    <h2>Data stored on the device</h2>
+    <p>Settings, the chosen nickname and win/loss counts are kept only in the app's storage on your phone and are deleted when you uninstall the app. If Android backup is on, the system may back them up to your own Google account.</p>
+    <h2>Sharing</h2>
+    <p>The invite button only opens the phone's share sheet with the room number; you choose where to send it. The app does not sell data or transfer it to third parties for advertising.</p>
+    <h2>Children</h2>
+    <p>The game is intended for people aged 13 and over. It does not collect personal information from anyone, including children. Online chat is limited to preset phrases.</p>
+    <h2>Contact</h2>
+    <p>Developer: Quê của tôi<br>Email: see the developer email on the Ô Ăn Quan - Cờ Dân Gian Google Play listing.</p>
+  </section>
+</main>
+</body>
+</html>
